@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お申し込み・お問い合わせ | 禅茶道 - New Year Premium Tea Experience</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;700&family=Shippori+Mincho:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+
+<body class="contact-page-body">
+
+    <div class="contact-header">
+        <div class="container">
+            <a href="index.html" class="back-link">
+                <span>←</span> TOPページへ戻る
+            </a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="form-container">
+            <h1 class="contact-form-title">お申し込みフォーム</h1>
+
+            <form action="mailto:info@chanoyu-bushi.com" method="post" enctype="text/plain">
+                <div class="form-group">
+                    <label for="name" class="form-label">
+                        お名前 <span class="required-badge">必須</span>
+                    </label>
+                    <input type="text" id="name" name="name" class="form-input" placeholder="例：山田 太郎" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="date" class="form-label">
+                        ご希望日程 <span class="required-badge">必須</span>
+                    </label>
+                    <select id="date" name="date" class="form-select" required>
+                        <option value="" disabled selected>選択してください</option>
+                        <optgroup label="帝国ホテル (Imperial Hotel)">
+                            <option value="1/1 (Wed) 13:45-15:15">1/1 (水) 13:45 - 15:15</option>
+                            <option value="1/2 (Thu) 13:45-15:15">1/2 (木) 13:45 - 15:15</option>
+                            <option value="1/3 (Fri) 13:45-15:15">1/3 (金) 13:45 - 15:15</option>
+                        </optgroup>
+                        <optgroup label="浜離宮 (Hama-rikyu)">
+                            <option value="1/6 (Mon) 13:45-15:15">1/6 (月) 13:45 - 15:15</option>
+                            <option value="1/7 (Tue) 13:45-15:15">1/7 (火) 13:45 - 15:15</option>
+                            <option value="1/8 (Wed) 13:45-15:15">1/8 (水) 13:45 - 15:15</option>
+                            <option value="1/9 (Thu) 13:45-15:15">1/9 (木) 13:45 - 15:15</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="people" class="form-label">
+                        参加人数 <span class="required-badge">必須</span>
+                    </label>
+                    <select id="people" name="people" class="form-select" required>
+                        <option value="1" selected>1名</option>
+                        <option value="2">2名</option>
+                        <option value="3">3名</option>
+                        <option value="4">4名</option>
+                        <option value="5以上">5名以上（要相談）</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="email" class="form-label">
+                        ご連絡先（メールアドレス） <span class="required-badge">必須</span>
+                    </label>
+                    <input type="email" id="email" name="email" class="form-input" placeholder="例：info@example.com"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label for="tel" class="form-label">
+                        ご連絡先（お電話番号）
+                    </label>
+                    <input type="tel" id="tel" name="tel" class="form-input" placeholder="例：090-1234-5678">
+                </div>
+
+                <div class="form-group">
+                    <label for="message" class="form-label">
+                        その他・ご質問など
+                    </label>
+                    <textarea id="message" name="message" class="form-textarea" rows="4"
+                        placeholder="ご質問やご要望がございましたらお書きください。"></textarea>
+                </div>
+
+                <div class="submit-btn-container">
+                    <button type="submit" class="submit-btn">内容を送信する</button>
+                    <p style="margin-top: 1rem; font-size: 0.8rem; color: #888;">
+                        ※メーラーが起動します。<br>
+                        うまく起動しない場合は、<a href="mailto:info@chanoyu-bushi.com"
+                            style="color: #a88a4d;">info@chanoyu-bushi.com</a> まで直接ご連絡ください。
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Chanoyu Bushi. All Rights Reserved.</p>
+    </footer>
+
+</body>
+
+</html>

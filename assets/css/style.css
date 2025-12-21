@@ -811,3 +811,150 @@ footer {
         right: 0;
     }
 }
+
+/* Contact Form Page Styles */
+.contact-page-body {
+    background-color: var(--color-bg-dark);
+    min-height: 100vh;
+}
+
+.contact-header {
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.back-link {
+    color: var(--color-text-sub);
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.3s;
+}
+
+.back-link:hover {
+    color: var(--color-accent);
+}
+
+.form-container {
+    max-width: 600px;
+    margin: 2rem auto 5rem;
+    padding: 3rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+}
+
+.contact-form-title {
+    color: var(--color-text-main);
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    letter-spacing: 0.1em;
+}
+
+.form-group {
+    margin-bottom: 2rem;
+}
+
+.form-label {
+    display: block;
+    color: var(--color-text-main);
+    font-family: 'Shippori Mincho', serif;
+    margin-bottom: 0.8rem;
+    font-size: 1rem;
+    letter-spacing: 0.05em;
+}
+
+.required-badge {
+    background-color: var(--color-accent);
+    color: #fff;
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    color: #fff;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.form-select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a88a4d' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1em;
+}
+
+.submit-btn-container {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.submit-btn {
+    display: inline-block;
+    background-color: var(--color-accent);
+    color: #fff;
+    font-family: 'Shippori Mincho', serif;
+    font-size: 1.1rem;
+    padding: 1rem 4rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 0.1em;
+}
+
+.submit-btn:hover {
+    background-color: #8c7335;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(168, 138, 77, 0.3);
+}
+
+/* Call To Action Buttons for Landing Page */
+.cta-button {
+    display: inline-block;
+    background-color: var(--color-accent);
+    color: #fff !important;
+    font-family: 'Shippori Mincho', serif;
+    padding: 1rem 3rem;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    letter-spacing: 0.1em;
+    font-size: 1.1rem;
+    margin-top: 2rem;
+    border: 1px solid var(--color-accent);
+}
+
+.cta-button:hover {
+    background-color: transparent;
+    color: var(--color-accent) !important;
+}
+
+.cta-wrapper {
+    text-align: center;
+    margin: 3rem 0;
+}
