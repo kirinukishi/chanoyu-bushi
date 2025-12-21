@@ -1,0 +1,813 @@
+:root {
+    --color-text-main: #f5f5f5;
+    --color-text-sub: #d0d0d0;
+    --color-accent: #c5a059;
+    /* Gold/Brass tone for luxury */
+    --color-bg-dark: #1a1a1a;
+    --color-bg-darker: #111111;
+    --font-serif: 'Shippori Mincho', 'Noto Serif JP', serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-serif);
+    color: var(--color-text-main);
+    background-color: var(--color-bg-dark);
+    line-height: 1.8;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    /* Slow zoom effect for dynamism */
+    animation: zoomSlow 20s infinite alternate;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Dark gradient overlay to ensure text readability */
+    background: linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.3) 0%,
+            rgba(0, 0, 0, 0.6) 50%,
+            rgba(0, 0, 0, 0.8) 100%);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 2rem;
+    max-width: 800px;
+    width: 100%;
+}
+
+/* Typography & Layout */
+.tagline {
+    display: inline-block;
+    font-size: 1.1rem;
+    letter-spacing: 0.2em;
+    color: var(--color-accent);
+    margin-bottom: 2rem;
+    position: relative;
+    font-weight: 500;
+}
+
+.tagline::before,
+.tagline::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 30px;
+    height: 1px;
+    background-color: var(--color-accent);
+}
+
+.tagline::before {
+    left: -45px;
+}
+
+.tagline::after {
+    right: -45px;
+}
+
+.main-title {
+    margin-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.main-title .jp {
+    font-size: 4.5rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    line-height: 1.2;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.main-title .separator {
+    display: none;
+    /* Hidden on mobile, maybe shown on wide screens if inline */
+}
+
+.main-title .en {
+    font-size: 1.2rem;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    font-family: 'Noto Serif JP', serif;
+    opacity: 0.9;
+    text-transform: uppercase;
+    margin-top: 0.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 0.5rem 2rem;
+}
+
+.description {
+    font-size: 1.25rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    margin-bottom: 4rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.description p {
+    margin-bottom: 0.8rem;
+}
+
+/* CTA Button */
+.cta-button {
+    display: inline-block;
+    padding: 1rem 3rem;
+    background-color: transparent;
+    border: 1px solid var(--color-text-main);
+    color: var(--color-text-main);
+    text-decoration: none;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(5px);
+}
+
+.cta-button:hover {
+    background-color: var(--color-text-main);
+    color: var(--color-bg-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+}
+
+/* Animations */
+@keyframes zoomSlow {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.1);
+    }
+}
+
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.delay-1 {
+    animation-delay: 0.3s;
+}
+
+.delay-2 {
+    animation-delay: 0.6s;
+}
+
+.delay-3 {
+    animation-delay: 0.9s;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* General Section Styles */
+.section {
+    padding: 8rem 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+/* Concept Section */
+.concept {
+    background-color: var(--color-bg-darker);
+    text-align: center;
+    color: var(--color-text-main);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../images/concept_bg.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    /* Parallax effect for premium feel */
+}
+
+.concept-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0;
+}
+
+/* Mapped from user's .concept-en */
+.concept-title {
+    font-size: 2.5rem;
+    font-weight: 500;
+    line-height: 1.6;
+    letter-spacing: 0.1em;
+    margin-bottom: 3rem;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.8);
+}
+
+.divider-vertical-short {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, transparent, var(--color-accent), transparent);
+    margin: 0 auto 3rem;
+}
+
+/* Mapped from user's .concept-body-en */
+.concept-body {
+    font-size: 1.1rem;
+    font-weight: 300;
+    line-height: 2.2;
+    letter-spacing: 0.08em;
+    color: var(--color-text-sub);
+    font-family: 'Shippori Mincho', serif;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .main-title .jp {
+        font-size: 3rem;
+    }
+
+    .main-title .en {
+        font-size: 0.9rem;
+        padding: 0.4rem 1rem;
+    }
+
+    .description {
+        font-size: 1rem;
+    }
+
+    .tagline {
+        font-size: 0.9rem;
+    }
+
+    .tagline::before,
+    .tagline::after {
+        width: 20px;
+    }
+
+    .tagline::before {
+        left: -30px;
+    }
+
+    .tagline::after {
+        right: -30px;
+    }
+
+    .section {
+        padding: 5rem 1.5rem;
+    }
+
+    .concept-title {
+        font-size: 1.8rem;
+        line-height: 1.5;
+    }
+
+    .concept-body {
+        font-size: 1rem;
+        line-height: 2;
+    }
+}
+
+/* Scroll Animation Styles */
+.fade-in-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+    will-change: opacity, transform;
+}
+
+.fade-in-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Section Header */
+.section-header {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.jp-category {
+    display: block;
+    font-family: 'Noto Serif JP', serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.2em;
+    color: var(--color-accent);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+/* Highlights Section (Clean Readability) */
+/* Highlights Section (Clean Readability) */
+.section.highlights {
+    background-color: #fcfbf9;
+    /* Japanese paper white */
+    color: var(--color-bg-dark);
+    position: relative;
+    padding-bottom: 5rem;
+    /* Add generous space to separate from next section */
+    /* Image will sit at the bottom or have its own space */
+    background-image: none;
+    /* Reset if previously set */
+}
+
+.section.highlights .jp-category {
+    color: #a88a4d;
+}
+
+/* Reasons Grid */
+.reasons-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    /* Space before image */
+}
+
+.reason-card {
+    text-align: center;
+    padding: 2rem;
+    border-radius: 4px;
+    transition: transform 0.3s ease;
+    background: transparent;
+    border: none;
+    backdrop-filter: none;
+}
+
+.reason-card:hover {
+    transform: translateY(-5px);
+    background: transparent;
+    border: none;
+}
+
+.card-icon {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 3rem;
+    color: #a88a4d;
+    margin-bottom: 1.5rem;
+    width: 90px;
+    height: 90px;
+    line-height: 90px;
+    border: 1px solid rgba(168, 138, 77, 0.3);
+    border-radius: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+}
+
+.reason-card h3 {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.5rem;
+    font-family: 'Noto Serif JP', serif;
+    color: var(--color-bg-dark);
+    text-shadow: none;
+}
+
+.reason-card p {
+    font-size: 0.95rem;
+    line-height: 2;
+    color: #555;
+    font-family: var(--font-serif);
+    text-shadow: none;
+}
+
+.highlights-image-container {
+    width: 100%;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.highlights-matcha-img {
+    width: 100%;
+    max-width: 800px;
+    /* Limit width */
+    height: auto;
+    /* Allow natural height to show full image */
+    object-fit: contain;
+    /* Ensure no cropping */
+    border-radius: 4px;
+    display: inline-block;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Profile Section */
+.profile {
+    background-color: #151515;
+    /* Slightly lighter than pure black */
+}
+
+.profile-box {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 0;
+}
+
+.profile-image {
+    flex: 1;
+    max-width: 400px;
+}
+
+.profile-image img {
+    width: 100%;
+    display: block;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.profile-text {
+    flex: 1.5;
+    text-align: left;
+}
+
+.profile-text h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 1rem;
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.profile-text .en-name {
+    font-size: 1rem;
+    color: var(--color-accent);
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 300;
+}
+
+.title-role {
+    color: var(--color-text-sub);
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+    color: var(--color-text-sub);
+    font-family: 'Shippori Mincho', serif;
+    letter-spacing: 0.05em;
+}
+
+.experience-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+    margin-top: 4rem;
+}
+
+.experience-image {
+    width: 100%;
+    max-width: 800px;
+}
+
+.experience-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.experience-flow {
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    padding: 2rem 0;
+}
+
+.flow-item h3 {
+    font-size: 1.4rem;
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+    font-family: 'Noto Serif JP', serif;
+    letter-spacing: 0.1em;
+}
+
+.flow-item p {
+    font-size: 1rem;
+    color: var(--color-text-main);
+    letter-spacing: 0.05em;
+}
+
+.flow-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.2), transparent);
+    margin: 1.5rem auto;
+}
+
+.special-note {
+    margin-top: 3rem;
+    font-size: 0.9rem;
+    color: var(--color-accent);
+    letter-spacing: 0.05em;
+}
+
+
+.profile-text .desc {
+    font-size: 1rem;
+    line-height: 2;
+    color: var(--color-text-main);
+}
+
+/* Responsive updates for new sections */
+@media (max-width: 768px) {
+    .reasons-grid {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+
+    .profile-box {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .profile-text {
+        text-align: left;
+        padding: 0 1rem;
+    }
+
+    /* Experience Section */
+    .experience {
+        background-color: var(--color-bg-dark);
+        /* Return to dark for atmosphere */
+        text-align: center;
+    }
+
+    .experience .experience-lead {
+        margin-top: 3rem;
+        font-size: 1.1rem;
+        line-height: 2.4;
+        color: var(--color-text-sub);
+        font-family: 'Shippori Mincho', serif;
+        letter-spacing: 0.05em;
+    }
+
+    .profile-text h3 {
+        justify-content: center;
+    }
+}
+
+/* Schedule Section */
+.schedule {
+    position: relative;
+    background-color: #f7f7f7;
+    overflow: hidden;
+    padding-bottom: 10rem;
+}
+
+.schedule-container {
+    position: relative;
+    z-index: 2;
+}
+
+.schedule-group {
+    margin-bottom: 4rem;
+}
+
+.schedule-venue-title {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    border-left: 4px solid var(--color-accent);
+    padding-left: 1rem;
+    color: var(--color-bg-dark);
+    font-family: 'Noto Serif JP', serif;
+}
+
+.schedule-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.schedule-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 4px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    flex: 1 1 200px;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.schedule-card:hover {
+    transform: translateY(-5px);
+}
+
+.schedule-date {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-bg-dark);
+    font-family: 'Shippori Mincho', serif;
+}
+
+.schedule-time {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    background-color: var(--color-accent);
+    color: white;
+    text-decoration: none;
+    font-size: 0.8rem;
+    border-radius: 50px;
+    transition: background 0.3s;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.status-badge span {
+    font-size: 0.7rem;
+    opacity: 0.9;
+}
+
+.status-badge:hover {
+    background-color: #a88a4d;
+}
+
+.schedule-note-text {
+    margin-top: 2rem;
+    font-size: 0.8rem;
+    color: #888;
+    text-align: right;
+    position: relative;
+    z-index: 2;
+}
+
+.bg-image-container {
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    width: 60%;
+    opacity: 0.1;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.bg-image-container img {
+    width: 100%;
+    mask-image: linear-gradient(to top, black, transparent);
+    -webkit-mask-image: linear-gradient(to top, black, transparent);
+}
+
+/* Contact Section */
+.contact {
+    background-color: var(--color-bg-darker);
+    color: var(--color-text-main);
+    padding-bottom: 5rem;
+}
+
+.contact-box {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    background: #1a1a1a;
+    padding: 4rem 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contact-box h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-family: 'Noto Serif JP', serif;
+}
+
+.contact-box p {
+    color: var(--color-text-sub);
+    margin-bottom: 3rem;
+}
+
+.contact-details {
+    margin-bottom: 3rem;
+}
+
+.org-name {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: var(--color-accent);
+}
+
+.contact-link {
+    display: block;
+    color: var(--color-text-main);
+    text-decoration: none;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    transition: color 0.3s;
+}
+
+.contact-link:hover {
+    color: var(--color-accent);
+}
+
+.contact-link .icon {
+    margin-right: 0.5rem;
+}
+
+.samurai-image {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    /* Center the image container */
+    overflow: hidden;
+    border-radius: 50%;
+    border: 2px solid var(--color-accent);
+}
+
+.samurai-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Footer */
+footer {
+    background-color: #000;
+    color: #666;
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.8rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .bg-image-container {
+        width: 100%;
+        bottom: 0;
+        right: 0;
+    }
+}
