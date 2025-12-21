@@ -28,9 +28,8 @@
         <div class="form-container">
             <h1 class="contact-form-title">お申し込みフォーム</h1>
 
-            <!-- Netlify Formsを利用して送信します -->
-            <form name="contact" method="POST" data-netlify="true">
-                <input type="hidden" name="form-name" value="contact" />
+            <!-- Formspreeを利用して送信します。YOUR_FORM_IDをご自身のIDに書き換えてください -->
+            <form action="https://formspree.io/f/YOUR_FORM_ID_HERE" method="POST">
                 <div class="form-group">
                     <label for="name" class="form-label">
                         お名前 <span class="required-badge">必須</span>
