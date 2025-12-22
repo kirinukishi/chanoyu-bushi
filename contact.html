@@ -104,6 +104,24 @@
         <p>&copy; 2025 Chanoyu Bushi. All Rights Reserved.</p>
     </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const dateParam = urlParams.get('date');
+
+            if (dateParam) {
+                const select = document.getElementById('date');
+                // Try to find the option with the matching value
+                // URL decoding is handled automatically by URLSearchParams, but good to ensure exact match
+                const options = Array.from(select.options);
+                const matchingOption = options.find(option => option.value === dateParam);
+
+                if (matchingOption) {
+                    select.value = dateParam;
+                }
+            }
+        });
+    </script>
 </body>
 
 </html>
