@@ -1369,3 +1369,17 @@ footer {
     opacity: 1;
     color: var(--color-accent);
 }
+.lang-switch-static {
+    font-family: var(--font-serif);
+    font-size: 0.9rem;
+}
+.lang-switch-static a {
+    color: #333;
+    text-decoration: none;
+    margin: 0 5px;
+    opacity: 0.5;
+}
+.lang-switch-static a.active, .lang-switch-static a:hover {
+    opacity: 1;
+    color: var(--color-accent);
+}
