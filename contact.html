@@ -138,8 +138,8 @@
                     if (formContentArea) formContentArea.style.display = "none";
                     if (successMessage) successMessage.style.display = "block";
 
-                    // ※ここで removeItem しないことで、リロードしても完了画面のままにする
-                    // 再送信したい場合はブラウザを閉じるか別タブで開く必要がある
+                    // 一度表示したらフラグを削除して、次回訪問時はフォームが表示されるようにする
+                    sessionStorage.removeItem('formSubmitted');
                 }
             });
 
