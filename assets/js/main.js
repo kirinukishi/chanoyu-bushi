@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const [id, status] = row.split(',').map(item => item.trim());
 
                 if (id && status) {
+                    // Update Schedule Cards (for index.html)
                     const card = document.querySelector(`.schedule-card[data-id="${id}"]`);
                     if (card) {
                         const badge = card.querySelector('.status-badge');
@@ -45,6 +46,18 @@ document.addEventListener('DOMContentLoaded', () => {
                             badge.style.cursor = 'default';
                             badge.style.backgroundColor = '#666'; // Gray out
                             badge.style.pointerEvents = 'none';
+                        }
+                    }
+
+                    // Update Select Options (for contact.html)
+                    const option = document.querySelector(`option[data-id="${id}"]`);
+                    if (option) {
+                        if (status.toLowerCase() === 'full') {
+                            option.disabled = true;
+                            // avoid appending text multiple times if function runs multiple times
+                            if (!option.textContent.includes('満席')) {
+                                option.textContent += ' (満席)';
+                            }
                         }
                     }
                 }
