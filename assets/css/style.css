@@ -1347,3 +1347,25 @@ footer {
     margin-left: 0.5rem;
     vertical-align: middle;
 }
+
+/* Language Switcher */
+.lang-switch {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    z-index: 1000;
+    font-family: var(--font-serif);
+    letter-spacing: 0.1em;
+}
+.lang-switch a {
+    color: #fff;
+    text-decoration: none;
+    opacity: 0.5;
+    margin: 0 8px;
+    transition: all 0.3s;
+    font-weight: 400;
+}
+.lang-switch a:hover, .lang-switch a.active {
+    opacity: 1;
+    color: var(--color-accent);
+}
