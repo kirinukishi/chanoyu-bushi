@@ -958,3 +958,176 @@ footer {
     text-align: center;
     margin: 3rem 0;
 }
+/* Kimono Option Section */
+.kimono-option {
+    background-color: #f0ebe5; /* Warm grey/paper color */
+    color: #333;
+    padding: 6rem 1rem; /* Reduced padding for mobile safety */
+}
+
+@media (min-width: 768px) {
+    .kimono-option {
+        padding: 6rem 2rem;
+    }
+}
+
+.kimono-availability {
+    margin-bottom: 4rem;
+    background: #fff;
+    padding: 3rem 1.5rem;
+    border-radius: 4px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.kimono-availability h3 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    font-family: var(--font-serif);
+    color: var(--color-bg-dark);
+}
+
+.availability-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.availability-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #eee;
+    background: #fafafa;
+    border-radius: 4px;
+}
+
+.availability-item:last-child {
+    border-bottom: none;
+}
+
+.availability-item .date {
+    font-weight: bold;
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+}
+
+.availability-item .status {
+    font-size: 0.9rem;
+}
+
+.availability-item.unavailable .date {
+    color: #999;
+}
+.availability-item.unavailable .status {
+    color: #cc0000; /* Red for unavailable */
+    font-weight: 500;
+}
+.availability-item.available .date {
+    color: #333;
+}
+.availability-item.available .status {
+    color: #2e7d32; /* Green for available */
+    font-weight: bold;
+}
+
+/* Pricing */
+.kimono-pricing {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.pricing-card {
+    background: #fff;
+    padding: 2.5rem 2rem;
+    border-radius: 4px;
+    flex: 1 1 300px; /* Min width */
+    max-width: 480px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border-top: 4px solid var(--color-accent);
+}
+
+.pricing-card h3 {
+    text-align: center;
+    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+    font-family: var(--font-serif);
+    color: var(--color-bg-dark);
+}
+
+.pricing-subtitle {
+    text-align: center;
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.pricing-card table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+}
+
+.pricing-card th, .pricing-card td {
+    padding: 1rem 0;
+    border-bottom: 1px solid #f5f5f5;
+    text-align: left;
+    font-size: 0.95rem;
+    vertical-align: middle;
+}
+
+.pricing-card th {
+    font-weight: 500;
+    color: #555;
+    padding-right: 1rem;
+    width: 50%;
+}
+
+.pricing-card td {
+    text-align: right;
+    font-weight: bold;
+    color: #111;
+}
+
+.pricing-note {
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: 1rem;
+    line-height: 1.6;
+    background: #fdfdfd;
+    padding: 0.8rem;
+    border-radius: 4px;
+}
+
+.kimono-notes-footer {
+    margin-top: 4rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 2;
+}
+
+@media (max-width: 768px) {
+    .availability-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    .availability-item .status {
+        align-self: flex-end;
+    }
+    .kimono-pricing {
+        flex-direction: column;
+    }
+    .pricing-card {
+        width: 100%;
+        max-width: none;
+    }
+}
