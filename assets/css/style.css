@@ -1376,21 +1376,33 @@ footer {
 
 /* Language Switcher */
 .lang-switch {
-    position: absolute;
-    top: 30px;
-    right: 30px;
-    z-index: 1000;
+    position: fixed;
+    /* Fixed to viewport */
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
     font-family: var(--font-serif);
     letter-spacing: 0.1em;
+    background: rgba(20, 20, 20, 0.6);
+    /* Dark semi-transparent background */
+    backdrop-filter: blur(8px);
+    /* Glassmorphism effect */
+    padding: 8px 16px;
+    border-radius: 30px;
+    /* Pill shape */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
 
 .lang-switch a {
     color: #fff;
     text-decoration: none;
-    opacity: 0.5;
+    opacity: 0.7;
     margin: 0 8px;
     transition: all 0.3s;
     font-weight: 400;
+    font-size: 0.85rem;
 }
 
 .lang-switch a:hover,
