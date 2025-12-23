@@ -1131,3 +1131,171 @@ footer {
         max-width: none;
     }
 }
+.plan-detail {
+    background-color: #1a1a1a;
+    color: #f5f5f5;
+    padding: 6rem 1rem;
+    position: relative;
+    /* texture? */
+}
+
+/* Plan Card */
+.plan-card {
+    background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+    border: 1px solid var(--color-accent); /* Gold border */
+    padding: 3rem 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 4px;
+    box-shadow: 0 0 30px rgba(197, 160, 89, 0.1);
+    position: relative;
+}
+
+/* Decorative Corner Frame */
+.plan-card::before, .plan-card::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--color-accent);
+    transition: all 0.3s ease;
+}
+.plan-card::before {
+    top: -5px;
+    left: -5px;
+    border-right: none;
+    border-bottom: none;
+}
+.plan-card::after {
+    bottom: -5px;
+    right: -5px;
+    border-left: none;
+    border-top: none;
+}
+
+/* Header */
+.plan-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 2rem;
+}
+
+.plan-label {
+    display: inline-block;
+    background-color: var(--color-accent);
+    color: #fff;
+    padding: 0.2rem 1rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+    font-family: 'Noto Serif JP', serif;
+}
+
+.plan-header h2 {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    line-height: 1.4;
+    font-family: var(--font-serif);
+}
+
+.plan-header .en-title {
+    font-size: 1.1rem;
+    font-weight: 300;
+    font-family: 'Times New Roman', serif;
+    font-style: italic;
+    letter-spacing: 0.05em;
+    color: var(--color-accent);
+    display: block;
+    margin-top: 0.5rem;
+}
+
+.plan-price-box {
+    margin-top: 2rem;
+}
+
+.plan-price-box .time {
+    font-size: 1.2rem;
+    margin-right: 1rem;
+    border: 1px solid #fff;
+    padding: 0.2rem 0.8rem;
+    vertical-align: middle;
+}
+
+.plan-price-box .price {
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: var(--color-accent);
+    vertical-align: middle;
+    margin-right: 0.5rem;
+    font-family: 'Shippori Mincho', serif;
+}
+
+.plan-price-box .unit {
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+.plan-summary {
+    margin-top: 1.5rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.plan-summary .sub-text {
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+/* Features */
+.plan-features {
+    text-align: center;
+}
+
+.plan-features h3 {
+    font-size: 1.3rem;
+    color: var(--color-accent);
+    margin-bottom: 2rem;
+    font-family: 'Noto Serif JP', serif;
+    letter-spacing: 0.1em;
+}
+
+.feature-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem 2rem;
+    text-align: left;
+}
+
+.feature-list li {
+    flex: 1 1 40%; /* 2 columns */
+    min-width: 280px;
+    font-size: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+    line-height: 1.8;
+}
+
+.feature-list li::before {
+    content: '✦';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+}
+
+@media (max-width: 768px) {
+    .plan-header h2 {
+        font-size: 1.8rem;
+    }
+    .plan-price-box .price {
+        font-size: 2rem;
+    }
+    .feature-list li {
+        flex: 1 1 100%;
+    }
+    .plan-card {
+        padding: 2rem 1rem;
+    }
+}
