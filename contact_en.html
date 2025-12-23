@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Experience - Chanoyu Bushi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;700&family=Shippori+Mincho:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+
+<body class="contact-page-body">
+
+    <div class="contact-header">
+        <div class="container">
+            <a href="index_en.html" class="back-link">
+                <span>←</span> Back to Top
+            </a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="form-container">
+            <!-- Success Message (Initially hidden) -->
+            <div id="success-message" style="display: none; text-align: center; padding: 4rem 0;">
+                <h2 style="font-family: 'Noto Serif JP', serif; font-size: 2rem; margin-bottom: 2rem;">Submission
+                    Complete</h2>
+                <p style="margin-bottom: 3rem; line-height: 2;">
+                    Thank you for your booking request.<br>
+                    We will check the details and contact you shortly.<br>
+                    Please wait for our confirmation.
+                </p>
+                <a href="index_en.html" class="cta-button" style="display: inline-block; text-decoration: none;"
+                    onclick="sessionStorage.removeItem('formSubmitted')">
+                    Back to Top
+                </a>
+            </div>
+
+            <!-- Form Content -->
+            <div id="form-content-area">
+                <h1 class="contact-form-title">Booking Form</h1>
+
+                <!-- Formspree configuration -->
+                <form id="contact-form" action="https://formspree.io/f/mpqalgpz" method="POST">
+                    <!-- Redirect to English thanks page -->
+                    <input type="hidden" name="_next"
+                        value="https://kirinukishi.github.io/chanoyu-bushi/thanks_en.html">
+
+                    <div class="form-group">
+                        <label for="name" class="form-label">
+                            Name <span class="required-badge">Required</span>
+                        </label>
+                        <input type="text" id="name" name="name" class="form-input" placeholder="e.g. John Smith"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date" class="form-label">
+                            Preferred Date <span class="required-badge">Required</span>
+                        </label>
+                        <select id="date" name="date" class="form-select" required>
+                            <option value="" disabled selected>Please Select</option>
+                            <optgroup label="Imperial Hotel">
+                                <option value="1/1 (Wed) 13:45-15:15" data-id="day1">Jan 1 (Wed) 13:45 - 15:15</option>
+                                <option value="1/2 (Thu) 13:45-15:15" data-id="day2">Jan 2 (Thu) 13:45 - 15:15</option>
+                                <option value="1/3 (Fri) 13:45-15:15" data-id="day3">Jan 3 (Fri) 13:45 - 15:15</option>
+                            </optgroup>
+                            <optgroup label="Hama-rikyu">
+                                <option value="1/6 (Mon) 13:45-15:15" data-id="day6">Jan 6 (Mon) 13:45 - 15:15</option>
+                                <option value="1/7 (Tue) 13:45-15:15" data-id="day7">Jan 7 (Tue) 13:45 - 15:15</option>
+                                <option value="1/8 (Wed) 13:45-15:15" data-id="day8">Jan 8 (Wed) 13:45 - 15:15</option>
+                                <option value="1/9 (Thu) 13:45-15:15" data-id="day9">Jan 9 (Thu) 13:45 - 15:15</option>
+                            </optgroup>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="people" class="form-label">
+                            No. of Guests <span class="required-badge">Required</span>
+                        </label>
+                        <select id="people" name="people" class="form-select" required>
+                            <option value="" disabled selected>Please Select (Min 2)</option>
+                            <option value="2">2 Guests</option>
+                            <option value="3">3 Guests</option>
+                            <option value="4">4 Guests</option>
+                            <option value="5以上">5+ Guests (Please inquire)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="allergy" class="form-label">
+                            Allergies / Dietary Restrictions <span class="badge-optional">Optional</span>
+                        </label>
+                        <textarea id="allergy" name="allergy" class="form-input" rows="3"
+                            placeholder="Please let us know if you have any allergies or dislikes (e.g. Shellfish, Wheat, Alcohol)."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="form-label">
+                            Email Address
+                        </label>
+                        <input type="email" id="email" name="email" class="form-input"
+                            placeholder="e.g. info@example.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tel" class="form-label">
+                            Phone Number <span class="required-badge">Required</span>
+                        </label>
+                        <input type="tel" id="tel" name="tel" class="form-input" placeholder="e.g. +81-90-1234-5678"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message" class="form-label">
+                            Requests / Questions
+                        </label>
+                        <textarea id="message" name="message" class="form-textarea" rows="4"
+                            placeholder="Please write any questions or special requests."></textarea>
+                    </div>
+
+                    <div class="submit-btn-container" style="text-align: center; margin-top: 3rem;">
+                        <div class="form-notes" style="text-align: left; max-width: 600px; margin: 0 auto 2rem;">
+                            <p>【Payment】<br>Payment is <strong>Cash Only</strong> on-site (JPY).<br>Please note that
+                                credit cards are NOT accepted.</p>
+                            <p>【Cancellation】<br>Cancellation fees apply as materials are prepared in
+                                advance.<br>Details will be sent via booking confirmation email.
+                            </p>
+                        </div>
+                        <button type="submit" id="submit-button" class="cta-button"
+                            style="border: none; cursor: pointer;">
+                            Submit Booking
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Chanoyu Bushi. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Script to handle Form state on return -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById("contact-form");
+            const successMessage = document.getElementById("success-message");
+            const formContentArea = document.getElementById("form-content-area");
+
+            // ページが表示された時（「戻る」で戻ってきた時も含む）にチェック
+            window.addEventListener('pageshow', (event) => {
+                // セッションストレージに「送信済み」フラグがあるか確認
+                if (sessionStorage.getItem('formSubmitted')) {
+                    // フォームを隠して完了メッセージを表示
+                    if (formContentArea) formContentArea.style.display = "none";
+                    if (successMessage) successMessage.style.display = "block";
+
+                    // 一度表示したらフラグを削除して、次回訪問時はフォームが表示されるようにする
+                    sessionStorage.removeItem('formSubmitted');
+                }
+            });
+
+            if (form) {
+                form.addEventListener("submit", () => {
+                    // 送信ボタンが押されたら「送信済み」フラグを立てる
+                    sessionStorage.setItem('formSubmitted', 'true');
+                    // そのまま標準のFormspreeページへ遷移させる（AJAX無効化）
+                });
+            }
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. URLパラメータの処理（日付自動選択）
+            const urlParams = new URLSearchParams(window.location.search);
+            const dateParam = urlParams.get('date');
+
+            if (dateParam) {
+                const select = document.getElementById('date');
+                if (select) {
+                    const options = Array.from(select.options);
+                    const matchingOption = options.find(option => option.value === dateParam);
+                    if (matchingOption) {
+                        select.value = dateParam;
+                    }
+                }
+            }
+
+            // 2. 空席状況の確認と反映（Google Sheets）
+            // main.jsのキャッシュ問題を回避するため、ここで直接実行します
+            const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQs5Fyt3R9IoY8kDf5r7ncndH3HsrOZS4M4H4R9thTYA-Nc8VFwDMEhOKBpyfAgwHFORnPAHD2Gr9Ys/pub?output=csv';
+
+            async function checkAvailability() {
+                try {
+                    const response = await fetch(SHEET_CSV_URL);
+                    const data = await response.text();
+                    const rows = data.split('\n').slice(1); // ヘッダー除去
+
+                    rows.forEach(row => {
+                        // カンマ区切りで ID と Status を取得
+                        const parts = row.split(',');
+                        if (parts.length < 2) return;
+
+                        const id = parts[0].trim();
+                        const status = parts[1].trim().toLowerCase();
+
+                        // ステータスが full なら選択肢を削除
+                        if (id && status === 'full') {
+                            const option = document.querySelector(`option[data-id="${id}"]`);
+                            if (option) {
+                                option.remove();
+                                // もし選択されていた項目が消えた場合、選択状態をリセットする処理があっても良いが、
+                                // 基本的には「消える」だけで十分
+                            }
+                        }
+                    });
+                } catch (error) {
+                    console.error('Availability check failed:', error);
+                }
+            }
+            checkAvailability();
+        });
+    </script>
+</body>
+
+</html>
