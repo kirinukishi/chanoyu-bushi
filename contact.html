@@ -156,20 +156,54 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // 1. URLパラメータの処理（日付自動選択）
             const urlParams = new URLSearchParams(window.location.search);
             const dateParam = urlParams.get('date');
 
             if (dateParam) {
                 const select = document.getElementById('date');
-                // Try to find the option with the matching value
-                // URL decoding is handled automatically by URLSearchParams, but good to ensure exact match
-                const options = Array.from(select.options);
-                const matchingOption = options.find(option => option.value === dateParam);
-
-                if (matchingOption) {
-                    select.value = dateParam;
+                if (select) {
+                    const options = Array.from(select.options);
+                    const matchingOption = options.find(option => option.value === dateParam);
+                    if (matchingOption) {
+                        select.value = dateParam;
+                    }
                 }
             }
+
+            // 2. 空席状況の確認と反映（Google Sheets）
+            // main.jsのキャッシュ問題を回避するため、ここで直接実行します
+            const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQs5Fyt3R9IoY8kDf5r7ncndH3HsrOZS4M4H4R9thTYA-Nc8VFwDMEhOKBpyfAgwHFORnPAHD2Gr9Ys/pub?output=csv';
+
+            async function checkAvailability() {
+                try {
+                    const response = await fetch(SHEET_CSV_URL);
+                    const data = await response.text();
+                    const rows = data.split('\n').slice(1); // ヘッダー除去
+
+                    rows.forEach(row => {
+                        // カンマ区切りで ID と Status を取得
+                        const parts = row.split(',');
+                        if (parts.length < 2) return;
+
+                        const id = parts[0].trim();
+                        const status = parts[1].trim().toLowerCase();
+
+                        // ステータスが full なら選択肢を削除
+                        if (id && status === 'full') {
+                            const option = document.querySelector(`option[data-id="${id}"]`);
+                            if (option) {
+                                option.remove();
+                                // もし選択されていた項目が消えた場合、選択状態をリセットする処理があっても良いが、
+                                // 基本的には「消える」だけで十分
+                            }
+                        }
+                    });
+                } catch (error) {
+                    console.error('Availability check failed:', error);
+                }
+            }
+            checkAvailability();
         });
     </script>
 </body>
