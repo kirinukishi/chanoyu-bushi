@@ -53,11 +53,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     const option = document.querySelector(`option[data-id="${id}"]`);
                     if (option) {
                         if (status.toLowerCase() === 'full') {
-                            option.disabled = true;
-                            // avoid appending text multiple times if function runs multiple times
-                            if (!option.textContent.includes('満席')) {
-                                option.textContent += ' (満席)';
-                            }
+                            // option.disabled = true; // Previous: Disable
+                            // option.textContent += ' (満席)';
+
+                            // User request: "Don't display" -> Remove completely
+                            option.remove();
                         }
                     }
                 }
