@@ -43,7 +43,7 @@
             <div id="form-content-area">
                 <h1 class="contact-form-title">お申し込みフォーム</h1>
 
-                <!-- Formspree configuration (AJAX) -->
+                <!-- Formspree configuration (Standard with SessionStorage flag) -->
                 <form id="contact-form" action="https://formspree.io/f/mpqalgpz" method="POST">
 
                     <div class="form-group">
@@ -113,74 +113,45 @@
                             style="border: none; cursor: pointer;">
                             内容を送信する
                         </button>
-                        <p id="error-message" style="color:#d32f2f; display:none; margin-top:1rem; font-weight: bold;">
-                            送信に失敗しました。時間をおいて再度お試しください。</p>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 
-    <!-- Script to handle AJAX submission -->
+    <footer>
+        <p>&copy; 2025 Chanoyu Bushi. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Script to handle Form state on return -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const form = document.getElementById("contact-form");
             const successMessage = document.getElementById("success-message");
             const formContentArea = document.getElementById("form-content-area");
-            const submitButton = document.getElementById('submit-button');
-            const errorMessage = document.getElementById('error-message');
 
-            async function handleSubmit(event) {
-                event.preventDefault();
-                const data = new FormData(event.target);
+            // ページが表示された時（「戻る」で戻ってきた時も含む）にチェック
+            window.addEventListener('pageshow', (event) => {
+                // セッションストレージに「送信済み」フラグがあるか確認
+                if (sessionStorage.getItem('formSubmitted')) {
+                    // フォームを隠して完了メッセージを表示
+                    if (formContentArea) formContentArea.style.display = "none";
+                    if (successMessage) successMessage.style.display = "block";
 
-                // ボタンを無効化
-                submitButton.disabled = true;
-                submitButton.textContent = "送信中...";
-                errorMessage.style.display = 'none';
+                    // ※ここで removeItem しないことで、リロードしても完了画面のままにする
+                    // 再送信したい場合はブラウザを閉じるか別タブで開く必要がある
+                }
+            });
 
-                fetch(event.target.action, {
-                    method: form.method,
-                    body: data,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                }).then(response => {
-                    if (response.ok) {
-                        // 成功時：フォームを隠してメッセージを表示
-                        formContentArea.style.display = "none";
-                        successMessage.style.display = "block";
-                        // ページトップへスクロール
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
-                    } else {
-                        response.json().then(data => {
-                            if (Object.hasOwn(data, 'errors')) {
-                                alert(data["errors"].map(error => error["message"]).join(", "));
-                            } else {
-                                throw new Error('Form submission failed');
-                            }
-                        });
-                        // エラー時
-                        submitButton.disabled = false;
-                        submitButton.textContent = "内容を送信する";
-                        errorMessage.style.display = 'block';
-                    }
-                }).catch(error => {
-                    console.error('Error:', error);
-                    submitButton.disabled = false;
-                    submitButton.textContent = "内容を送信する";
-                    errorMessage.style.display = 'block';
-                });
-            }
             if (form) {
-                form.addEventListener("submit", handleSubmit);
+                form.addEventListener("submit", () => {
+                    // 送信ボタンが押されたら「送信済み」フラグを立てる
+                    sessionStorage.setItem('formSubmitted', 'true');
+                    // そのまま標準のFormspreeページへ遷移させる（AJAX無効化）
+                });
             }
         });
     </script>
-
-    <footer>
-        <p>&copy; 2025 Chanoyu Bushi. All Rights Reserved.</p>
-    </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
