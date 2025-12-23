@@ -32,13 +32,19 @@
             <!-- 成功メッセージ (初期状態は非表示) -->
             <div id="success-message" style="display: none; text-align: center; padding: 4rem 0;">
                 <h2 style="font-family: 'Noto Serif JP', serif; font-size: 2rem; margin-bottom: 2rem;">送信完了</h2>
-                <p style="margin-bottom: 3rem; line-height: 2;">
+                <p style="margin-bottom: 2rem; line-height: 2;">
                     お申し込みありがとうございます。<br>
-                    内容を確認の上、担当者よりご連絡させていただきます。<br>
-                    今しばらくお待ちくださいませ。
+                    以下の内容で受け付けました。<br>
+                    担当者より確認のメールをお送りいたしますので、今しばらくお待ちください。
                 </p>
-                <a href="index.html" class="cta-button" style="display: inline-block; text-decoration: none;"
-                    onclick="sessionStorage.removeItem('formSubmitted')">
+
+                <!-- 申し込み内容表示エリア -->
+                <div id="submission-summary"
+                    style="text-align: left; background: rgba(255,255,255,0.05); padding: 2rem; border-radius: 8px; margin: 0 auto 3rem; max-width: 600px; border: 1px solid rgba(168, 138, 77, 0.3);">
+                    <!-- JSで内容を挿入 -->
+                </div>
+
+                <a href="index.html" class="cta-button" style="display: inline-block; text-decoration: none;">
                     トップページへ戻る
                 </a>
             </div>
@@ -47,8 +53,9 @@
             <div id="form-content-area">
                 <h1 class="contact-form-title">ご予約フォーム</h1>
 
-                <!-- Formspree configuration (Standard with SessionStorage flag) -->
+                <!-- Formspree configuration (AJAX handled) -->
                 <form id="contact-form" action="https://formspree.io/f/mpqalgpz" method="POST">
+                    <!-- ... Form fields ... -->
 
                     <div class="form-group">
                         <label for="name" class="form-label">
@@ -167,31 +174,92 @@
         <p>&copy; 2025 Chanoyu Bushi. All Rights Reserved.</p>
     </footer>
 
-    <!-- Script to handle Form state on return -->
+    <!-- Script to handle Form state and AJAX submission -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const form = document.getElementById("contact-form");
             const successMessage = document.getElementById("success-message");
             const formContentArea = document.getElementById("form-content-area");
-
-            // ページが表示された時（「戻る」で戻ってきた時も含む）にチェック
-            window.addEventListener('pageshow', (event) => {
-                // セッションストレージに「送信済み」フラグがあるか確認
-                if (sessionStorage.getItem('formSubmitted')) {
-                    // フォームを隠して完了メッセージを表示
-                    if (formContentArea) formContentArea.style.display = "none";
-                    if (successMessage) successMessage.style.display = "block";
-
-                    // 一度表示したらフラグを削除して、次回訪問時はフォームが表示されるようにする
-                    sessionStorage.removeItem('formSubmitted');
-                }
-            });
+            const summaryDiv = document.getElementById("submission-summary");
 
             if (form) {
-                form.addEventListener("submit", () => {
-                    // 送信ボタンが押されたら「送信済み」フラグを立てる
-                    sessionStorage.setItem('formSubmitted', 'true');
-                    // そのまま標準のFormspreeページへ遷移させる（AJAX無効化）
+                form.addEventListener("submit", (e) => {
+                    e.preventDefault();
+
+                    const submitBtn = document.querySelector("#submit-button");
+                    const originalBtnText = submitBtn.textContent;
+                    submitBtn.textContent = "送信中...";
+                    submitBtn.disabled = true;
+
+                    const formData = new FormData(form);
+
+                    // Generate Summary HTML
+                    let summaryHtml = '<ul style="list-style: none; padding: 0;">';
+
+                    // Helper to get selected text for dropdowns
+                    function getSelectedText(elementId) {
+                        const el = document.getElementById(elementId);
+                        if (el && el.selectedIndex !== -1) {
+                            return el.options[el.selectedIndex].text;
+                        }
+                        return "";
+                    }
+
+                    // Field Mapping
+                    const fields = [
+                        { label: 'お名前', value: formData.get('name') },
+                        { label: 'ご希望日程', value: getSelectedText('date') },
+                        { label: '着付け体験', value: formData.get('kimono_option') },
+                        { label: '参加人数', value: getSelectedText('people') },
+                        { label: 'アレルギー等', value: formData.get('allergy') },
+                        { label: 'メールアドレス', value: formData.get('email') },
+                        { label: '電話番号', value: formData.get('tel') },
+                        { label: 'その他', value: formData.get('message') }
+                    ];
+
+                    fields.forEach(field => {
+                        if (field.value && field.value.trim() !== "") {
+                            summaryHtml += `<li style="margin-bottom: 0.8rem; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 0.5rem;">
+                                <span style="display: block; font-size: 0.8rem; color: #888; margin-bottom: 0.2rem;">${field.label}</span>
+                                <span style="display: block; font-size: 1rem; color: #fff;">${field.value}</span>
+                            </li>`;
+                        }
+                    });
+                    summaryHtml += '</ul>';
+
+                    // Send to Formspree via AJAX
+                    fetch(form.action, {
+                        method: form.method,
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    }).then(response => {
+                        if (response.ok) {
+                            // Success
+                            if (formContentArea) formContentArea.style.display = "none";
+                            if (summaryDiv) summaryDiv.innerHTML = summaryHtml;
+                            if (successMessage) successMessage.style.display = "block";
+
+                            // Scroll to top
+                            window.scrollTo(0, 0);
+                        } else {
+                            // Error
+                            response.json().then(data => {
+                                if (Object.hasOwn(data, 'errors')) {
+                                    alert(data["errors"].map(error => error["message"]).join(", "));
+                                } else {
+                                    alert("送信中にエラーが発生しました。もう一度お試しください。");
+                                }
+                            });
+                            submitBtn.textContent = originalBtnText;
+                            submitBtn.disabled = false;
+                        }
+                    }).catch(error => {
+                        alert("送信中にエラーが発生しました。ネットワーク接続をご確認ください。");
+                        submitBtn.textContent = originalBtnText;
+                        submitBtn.disabled = false;
+                    });
                 });
             }
         });
