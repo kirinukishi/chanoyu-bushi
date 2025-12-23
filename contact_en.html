@@ -33,13 +33,19 @@
             <div id="success-message" style="display: none; text-align: center; padding: 4rem 0;">
                 <h2 style="font-family: 'Noto Serif JP', serif; font-size: 2rem; margin-bottom: 2rem;">Submission
                     Complete</h2>
-                <p style="margin-bottom: 3rem; line-height: 2;">
+                <p style="margin-bottom: 2rem; line-height: 2;">
                     Thank you for your booking request.<br>
-                    We will check the details and contact you shortly.<br>
-                    Please wait for our confirmation.
+                    We have received the following details.<br>
+                    We will check the details and contact you shortly.
                 </p>
-                <a href="index_en.html" class="cta-button" style="display: inline-block; text-decoration: none;"
-                    onclick="sessionStorage.removeItem('formSubmitted')">
+
+                <!-- Submission Summary Area -->
+                <div id="submission-summary"
+                    style="text-align: left; background: rgba(255,255,255,0.05); padding: 2rem; border-radius: 8px; margin: 0 auto 3rem; max-width: 600px; border: 1px solid rgba(168, 138, 77, 0.3);">
+                    <!-- JS inserts content here -->
+                </div>
+
+                <a href="index_en.html" class="cta-button" style="display: inline-block; text-decoration: none;">
                     Back to Top
                 </a>
             </div>
@@ -48,11 +54,9 @@
             <div id="form-content-area">
                 <h1 class="contact-form-title">Reservation Form</h1>
 
-                <!-- Formspree configuration -->
+                <!-- Formspree configuration (AJAX handled) -->
                 <form id="contact-form" action="https://formspree.io/f/mpqalgpz" method="POST">
-                    <!-- Redirect to English thanks page -->
-                    <input type="hidden" name="_next"
-                        value="https://kirinukishi.github.io/chanoyu-bushi/thanks_en.html">
+                    <!-- Redirect removed, handled by JS -->
 
                     <div class="form-group">
                         <label for="name" class="form-label">
@@ -178,31 +182,92 @@
         <p>&copy; 2025 Chanoyu Bushi. All Rights Reserved.</p>
     </footer>
 
-    <!-- Script to handle Form state on return -->
+    <!-- Script to handle Form state and AJAX submission -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const form = document.getElementById("contact-form");
             const successMessage = document.getElementById("success-message");
             const formContentArea = document.getElementById("form-content-area");
-
-            // ページが表示された時（「戻る」で戻ってきた時も含む）にチェック
-            window.addEventListener('pageshow', (event) => {
-                // セッションストレージに「送信済み」フラグがあるか確認
-                if (sessionStorage.getItem('formSubmitted')) {
-                    // フォームを隠して完了メッセージを表示
-                    if (formContentArea) formContentArea.style.display = "none";
-                    if (successMessage) successMessage.style.display = "block";
-
-                    // 一度表示したらフラグを削除して、次回訪問時はフォームが表示されるようにする
-                    sessionStorage.removeItem('formSubmitted');
-                }
-            });
+            const summaryDiv = document.getElementById("submission-summary");
 
             if (form) {
-                form.addEventListener("submit", () => {
-                    // 送信ボタンが押されたら「送信済み」フラグを立てる
-                    sessionStorage.setItem('formSubmitted', 'true');
-                    // そのまま標準のFormspreeページへ遷移させる（AJAX無効化）
+                form.addEventListener("submit", (e) => {
+                    e.preventDefault();
+
+                    const submitBtn = document.querySelector("#submit-button");
+                    const originalBtnText = submitBtn.textContent;
+                    submitBtn.textContent = "Sending...";
+                    submitBtn.disabled = true;
+
+                    const formData = new FormData(form);
+
+                    // Generate Summary HTML
+                    let summaryHtml = '<ul style="list-style: none; padding: 0;">';
+
+                    // Helper to get selected text for dropdowns
+                    function getSelectedText(elementId) {
+                        const el = document.getElementById(elementId);
+                        if (el && el.selectedIndex !== -1) {
+                            return el.options[el.selectedIndex].text;
+                        }
+                        return "";
+                    }
+
+                    // Field Mapping (English Labels)
+                    const fields = [
+                        { label: 'Name', value: formData.get('name') },
+                        { label: 'Date', value: getSelectedText('date') },
+                        { label: 'Kimono Option', value: formData.get('kimono_option') },
+                        { label: 'Guests', value: getSelectedText('people') },
+                        { label: 'Allergies', value: formData.get('allergy') },
+                        { label: 'Email', value: formData.get('email') },
+                        { label: 'Phone', value: formData.get('tel') },
+                        { label: 'Requests', value: formData.get('message') }
+                    ];
+
+                    fields.forEach(field => {
+                        if (field.value && field.value.trim() !== "") {
+                            summaryHtml += `<li style="margin-bottom: 0.8rem; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 0.5rem;">
+                                <span style="display: block; font-size: 0.8rem; color: #888; margin-bottom: 0.2rem;">\${field.label}</span>
+                                <span style="display: block; font-size: 1rem; color: #fff;">\${field.value}</span>
+                            </li>`;
+                        }
+                    });
+                    summaryHtml += '</ul>';
+
+                    // Send to Formspree via AJAX
+                    fetch(form.action, {
+                        method: form.method,
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    }).then(response => {
+                        if (response.ok) {
+                            // Success
+                            if (formContentArea) formContentArea.style.display = "none";
+                            if (summaryDiv) summaryDiv.innerHTML = summaryHtml;
+                            if (successMessage) successMessage.style.display = "block";
+
+                            // Scroll to top
+                            window.scrollTo(0, 0);
+                        } else {
+                            // Error
+                            response.json().then(data => {
+                                if (Object.hasOwn(data, 'errors')) {
+                                    alert(data["errors"].map(error => error["message"]).join(", "));
+                                } else {
+                                    alert("An error occurred during submission. Please try again.");
+                                }
+                            });
+                            submitBtn.textContent = originalBtnText;
+                            submitBtn.disabled = false;
+                        }
+                    }).catch(error => {
+                        alert("An error occurred. Please check your network connection.");
+                        submitBtn.textContent = originalBtnText;
+                        submitBtn.disabled = false;
+                    });
                 });
             }
         });
@@ -245,7 +310,7 @@
 
                         // ステータスが full なら選択肢を削除
                         if (id && status === 'full') {
-                            const option = document.querySelector(`option[data-id="${id}"]`);
+                            const option = document.querySelector(`option[data-id="\${id}"]`);
                             if (option) {
                                 option.remove();
                                 // もし選択されていた項目が消えた場合、選択状態をリセットする処理があっても良いが、
