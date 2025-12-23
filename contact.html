@@ -28,9 +28,10 @@
         <div class="form-container">
             <h1 class="contact-form-title">お申し込みフォーム</h1>
 
-            <!-- Netlify Forms configuration -->
-            <form name="contact-form-v3" method="POST" data-netlify="true">
-                <input type="hidden" name="form-name" value="contact-form-v3" />
+            <!-- Formspree configuration -->
+            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <!-- 送信後のリダイレクト設定 (必要に応じて) -->
+                <input type="hidden" name="_next" value="https://boisterous-bublanina-cc7cc0.netlify.app/thanks.html">
                 <div class="form-group">
                     <label for="name" class="form-label">
                         お名前 <span class="required-badge">必須</span>
