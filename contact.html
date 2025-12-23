@@ -26,81 +26,157 @@
 
     <div class="container">
         <div class="form-container">
-            <h1 class="contact-form-title">お申し込みフォーム</h1>
+            <!-- 成功メッセージ (初期状態は非表示) -->
+            <div id="success-message" style="display: none; text-align: center; padding: 4rem 0;">
+                <h2 style="font-family: 'Noto Serif JP', serif; font-size: 2rem; margin-bottom: 2rem;">送信完了</h2>
+                <p style="margin-bottom: 3rem; line-height: 2;">
+                    お申し込みありがとうございます。<br>
+                    内容を確認の上、担当者よりご連絡させていただきます。<br>
+                    今しばらくお待ちくださいませ。
+                </p>
+                <a href="index.html" class="cta-button" style="display: inline-block; text-decoration: none;">
+                    トップページへ戻る
+                </a>
+            </div>
 
-            <!-- Formspree configuration -->
-            <form action="https://formspree.io/f/mpqalgpz" method="POST">
-                <!-- 送信後のリダイレクト設定 -->
-                <input type="hidden" name="_next" value="https://kirinukishi.github.io/chanoyu-bushi/thanks.html">
-                <div class="form-group">
-                    <label for="name" class="form-label">
-                        お名前 <span class="required-badge">必須</span>
-                    </label>
-                    <input type="text" id="name" name="name" class="form-input" placeholder="例：山田 太郎" required>
-                </div>
+            <!-- 入力フォーム (成功時は非表示にする) -->
+            <div id="form-content-area">
+                <h1 class="contact-form-title">お申し込みフォーム</h1>
 
-                <div class="form-group">
-                    <label for="date" class="form-label">
-                        ご希望日程 <span class="required-badge">必須</span>
-                    </label>
-                    <select id="date" name="date" class="form-select" required>
-                        <option value="" disabled selected>選択してください</option>
-                        <optgroup label="帝国ホテル (Imperial Hotel)">
-                            <option value="1/1 (Wed) 13:45-15:15">1/1 (水) 13:45 - 15:15</option>
-                            <option value="1/2 (Thu) 13:45-15:15">1/2 (木) 13:45 - 15:15</option>
-                            <option value="1/3 (Fri) 13:45-15:15">1/3 (金) 13:45 - 15:15</option>
-                        </optgroup>
-                        <optgroup label="浜離宮 (Hama-rikyu)">
-                            <option value="1/6 (Mon) 13:45-15:15">1/6 (月) 13:45 - 15:15</option>
-                            <option value="1/7 (Tue) 13:45-15:15">1/7 (火) 13:45 - 15:15</option>
-                            <option value="1/8 (Wed) 13:45-15:15">1/8 (水) 13:45 - 15:15</option>
-                            <option value="1/9 (Thu) 13:45-15:15">1/9 (木) 13:45 - 15:15</option>
-                        </optgroup>
-                    </select>
-                </div>
+                <!-- Formspree configuration (AJAX) -->
+                <form id="contact-form" action="https://formspree.io/f/mpqalgpz" method="POST">
 
-                <div class="form-group">
-                    <label for="people" class="form-label">
-                        参加人数 <span class="required-badge">必須</span>
-                    </label>
-                    <select id="people" name="people" class="form-select" required>
-                        <option value="1" selected>1名</option>
-                        <option value="2">2名</option>
-                        <option value="3">3名</option>
-                        <option value="4">4名</option>
-                        <option value="5以上">5名以上（要相談）</option>
-                    </select>
-                </div>
+                    <div class="form-group">
+                        <label for="name" class="form-label">
+                            お名前 <span class="required-badge">必須</span>
+                        </label>
+                        <input type="text" id="name" name="name" class="form-input" placeholder="例：山田 太郎" required>
+                    </div>
 
-                <div class="form-group">
-                    <label for="email" class="form-label">
-                        ご連絡先（メールアドレス）
-                    </label>
-                    <input type="email" id="email" name="email" class="form-input" placeholder="例：info@example.com">
-                </div>
+                    <div class="form-group">
+                        <label for="date" class="form-label">
+                            ご希望日程 <span class="required-badge">必須</span>
+                        </label>
+                        <select id="date" name="date" class="form-select" required>
+                            <option value="" disabled selected>選択してください</option>
+                            <optgroup label="帝国ホテル (Imperial Hotel)">
+                                <option value="1/1 (Wed) 13:45-15:15">1/1 (水) 13:45 - 15:15</option>
+                                <option value="1/2 (Thu) 13:45-15:15">1/2 (木) 13:45 - 15:15</option>
+                                <option value="1/3 (Fri) 13:45-15:15">1/3 (金) 13:45 - 15:15</option>
+                            </optgroup>
+                            <optgroup label="浜離宮 (Hama-rikyu)">
+                                <option value="1/6 (Mon) 13:45-15:15">1/6 (月) 13:45 - 15:15</option>
+                                <option value="1/7 (Tue) 13:45-15:15">1/7 (火) 13:45 - 15:15</option>
+                                <option value="1/8 (Wed) 13:45-15:15">1/8 (水) 13:45 - 15:15</option>
+                                <option value="1/9 (Thu) 13:45-15:15">1/9 (木) 13:45 - 15:15</option>
+                            </optgroup>
+                        </select>
+                    </div>
 
-                <div class="form-group">
-                    <label for="tel" class="form-label">
-                        ご連絡先（お電話番号） <span class="required-badge">必須</span>
-                    </label>
-                    <input type="tel" id="tel" name="tel" class="form-input" placeholder="例：090-1234-5678" required>
-                </div>
+                    <div class="form-group">
+                        <label for="people" class="form-label">
+                            参加人数 <span class="required-badge">必須</span>
+                        </label>
+                        <select id="people" name="people" class="form-select" required>
+                            <option value="1" selected>1名</option>
+                            <option value="2">2名</option>
+                            <option value="3">3名</option>
+                            <option value="4">4名</option>
+                            <option value="5以上">5名以上（要相談）</option>
+                        </select>
+                    </div>
 
-                <div class="form-group">
-                    <label for="message" class="form-label">
-                        その他・ご質問など
-                    </label>
-                    <textarea id="message" name="message" class="form-textarea" rows="4"
-                        placeholder="ご質問やご要望がございましたらお書きください。"></textarea>
-                </div>
+                    <div class="form-group">
+                        <label for="email" class="form-label">
+                            ご連絡先（メールアドレス）
+                        </label>
+                        <input type="email" id="email" name="email" class="form-input" placeholder="例：info@example.com">
+                    </div>
 
-                <div class="submit-btn-container">
-                    <button type="submit" class="submit-btn">内容を送信する</button>
-                    <!-- Formspree ID設定後、このボタンで直接送信できるようになります -->
-                </div>
-            </form>
+                    <div class="form-group">
+                        <label for="tel" class="form-label">
+                            ご連絡先（お電話番号） <span class="required-badge">必須</span>
+                        </label>
+                        <input type="tel" id="tel" name="tel" class="form-input" placeholder="例：090-1234-5678" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message" class="form-label">
+                            その他・ご質問など
+                        </label>
+                        <textarea id="message" name="message" class="form-textarea" rows="4"
+                            placeholder="ご質問やご要望がございましたらお書きください。"></textarea>
+                    </div>
+
+                    <div class="submit-btn-container" style="text-align: center; margin-top: 3rem;">
+                        <button type="submit" id="submit-button" class="cta-button"
+                            style="border: none; cursor: pointer;">
+                            内容を送信する
+                        </button>
+                        <p id="error-message" style="color:#d32f2f; display:none; margin-top:1rem; font-weight: bold;">
+                            送信に失敗しました。時間をおいて再度お試しください。</p>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
+
+    <!-- Script to handle AJAX submission -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById("contact-form");
+            const successMessage = document.getElementById("success-message");
+            const formContentArea = document.getElementById("form-content-area");
+            const submitButton = document.getElementById('submit-button');
+            const errorMessage = document.getElementById('error-message');
+
+            async function handleSubmit(event) {
+                event.preventDefault();
+                const data = new FormData(event.target);
+
+                // ボタンを無効化
+                submitButton.disabled = true;
+                submitButton.textContent = "送信中...";
+                errorMessage.style.display = 'none';
+
+                fetch(event.target.action, {
+                    method: form.method,
+                    body: data,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                }).then(response => {
+                    if (response.ok) {
+                        // 成功時：フォームを隠してメッセージを表示
+                        formContentArea.style.display = "none";
+                        successMessage.style.display = "block";
+                        // ページトップへスクロール
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    } else {
+                        response.json().then(data => {
+                            if (Object.hasOwn(data, 'errors')) {
+                                alert(data["errors"].map(error => error["message"]).join(", "));
+                            } else {
+                                throw new Error('Form submission failed');
+                            }
+                        });
+                        // エラー時
+                        submitButton.disabled = false;
+                        submitButton.textContent = "内容を送信する";
+                        errorMessage.style.display = 'block';
+                    }
+                }).catch(error => {
+                    console.error('Error:', error);
+                    submitButton.disabled = false;
+                    submitButton.textContent = "内容を送信する";
+                    errorMessage.style.display = 'block';
+                });
+            }
+            if (form) {
+                form.addEventListener("submit", handleSubmit);
+            }
+        });
+    </script>
 
     <footer>
         <p>&copy; 2025 Chanoyu Bushi. All Rights Reserved.</p>
