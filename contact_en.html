@@ -320,6 +320,11 @@
                     });
                 } catch (error) {
                     console.error('Availability check failed:', error);
+                } finally {
+                    // Re-check Kimono option visibility after updating availability
+                    if (typeof updateKimonoOptionVisibility === 'function') {
+                        updateKimonoOptionVisibility();
+                    }
                 }
             }
             checkAvailability();

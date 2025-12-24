@@ -312,6 +312,11 @@
                     });
                 } catch (error) {
                     console.error('Availability check failed:', error);
+                } finally {
+                    // データの反映が終わった後で、再度Kimonoオプションの表示判定を行う
+                    if (typeof updateKimonoOptionVisibility === 'function') {
+                        updateKimonoOptionVisibility();
+                    }
                 }
             }
             checkAvailability();
