@@ -58,8 +58,24 @@
                     <!-- ... Form fields ... -->
 
                     <div class="form-group">
+                        <label for="hotel_name" class="form-label">
+                            宿泊ホテル名
+                        </label>
+                        <input type="text" id="hotel_name" name="hotel_name" class="form-input" placeholder="例：帝国ホテル"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="concierge_name" class="form-label">
+                            ご担当者様名（コンシェルジュ）
+                        </label>
+                        <input type="text" id="concierge_name" name="concierge_name" class="form-input"
+                            placeholder="例：佐藤 花子" required>
+                    </div>
+
+                    <div class="form-group">
                         <label for="name" class="form-label">
-                            お名前 <span class="required-badge">必須</span>
+                            ご予約者様代表者名 <span class="required-badge">必須</span>
                         </label>
                         <input type="text" id="name" name="name" class="form-input" placeholder="例：山田 太郎" required>
                     </div>
@@ -70,10 +86,12 @@
                         </label>
                         <select id="date" name="date" class="form-select" required>
                             <option value="" disabled selected>選択してください</option>
-                            <optgroup label="浜離宮恩賜庭園 (Hama-rikyu Gardens)">
+                            <optgroup label="写楽館 (Sharakukan)">
                                 <option value="1/1 (Wed) 13:45-15:15" data-id="day1">1/1 (水) 13:45 - 15:15</option>
                                 <option value="1/2 (Thu) 13:45-15:15" data-id="day2">1/2 (木) 13:45 - 15:15</option>
                                 <option value="1/3 (Fri) 13:45-15:15" data-id="day3">1/3 (金) 13:45 - 15:15</option>
+                            </optgroup>
+                            <optgroup label="浜離宮恩賜庭園 (Hama-rikyu Gardens)">
                                 <option value="1/6 (Mon) 13:45-15:15" data-id="day6">1/6 (月) 13:45 - 15:15</option>
                                 <option value="1/7 (Tue) 13:45-15:15" data-id="day7">1/7 (火) 13:45 - 15:15</option>
                                 <option value="1/8 (Wed) 13:45-15:15" data-id="day8">1/8 (水) 13:45 - 15:15</option>
@@ -155,7 +173,7 @@
                     <div class="submit-btn-container" style="text-align: center; margin-top: 3rem;">
                         <div class="form-notes" style="text-align: left; max-width: 600px; margin: 0 auto 2rem;">
                             <p>【お支払いについて】<br>当日は<strong>現金のみ</strong>の現地決済となります。<br>クレジットカードはご利用いただけませんのでご了承ください。</p>
-                            <p>【キャンセルについて】<br>ご予約確定後のキャンセルは、食材手配の都合上、規定のキャンセル料が発生いたします。<br>詳細はご予約確定メールにてご案内させていただきます。
+                            <p>【キャンセルについて】<br>ご予約確定後のキャンセルは、規定のキャンセル料が発生いたします。<br>詳細はご予約確定メールにてご案内させていただきます。
                             </p>
                         </div>
                         <button type="submit" id="submit-button" class="cta-button"
