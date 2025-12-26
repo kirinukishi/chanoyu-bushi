@@ -199,7 +199,7 @@
                     const fields = [
                         { label: 'お名前', value: formData.get('name') },
                         { label: 'ご希望日程', value: getSelectedText('date') },
-                        { label: '着付け体験', value: formData.get('kimono_option') },
+
                         { label: '参加人数', value: getSelectedText('people') },
                         { label: 'アレルギー等', value: formData.get('allergy') },
                         { label: 'メールアドレス', value: formData.get('email') },
@@ -303,7 +303,10 @@
                 } catch (error) {
                     console.error('Availability check failed:', error);
                 }
-            });
+            }
+
+            // Execute availability check
+            checkAvailability();
         });
     </script>
 </body>

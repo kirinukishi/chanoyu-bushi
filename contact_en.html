@@ -84,34 +84,7 @@
                         </select>
                     </div>
 
-                    <!-- Kimono Option (Conditionally Displayed) -->
-                    <div id="kimono-option-container" class="form-group" style="display: none;">
-                        <label class="form-label">
-                            Kimono Option <span class="required-badge">Please Select</span>
-                        </label>
-                        <div
-                            style="background: rgba(255, 255, 255, 0.05); padding: 1.5rem; border-radius: 4px; border: 1px solid rgba(168, 138, 77, 0.3);">
-                            <p style="font-size: 0.9rem; margin-bottom: 1rem; color: #ccc;">
-                                Kimono fitting service is available on your selected date. Please select below if you
-                                are interested.<br>
-                                <span style="font-size: 0.8rem; color: #888;">※Details regarding costumes and fees will
-                                    be arranged via email.</span>
-                            </p>
-                            <div style="display: flex; gap: 2rem; align-items: center;">
-                                <label style="cursor: pointer; display: flex; align-items: center; gap: 0.5rem;">
-                                    <input type="radio" name="kimono_option" value="No, thank you" checked
-                                        style="accent-color: var(--color-accent);">
-                                    No, thank you
-                                </label>
-                                <label
-                                    style="cursor: pointer; display: flex; align-items: center; gap: 0.5rem; color: var(--color-accent); font-weight: bold;">
-                                    <input type="radio" name="kimono_option" value="Yes, I am interested"
-                                        style="accent-color: var(--color-accent);">
-                                    Yes, I am interested
-                                </label>
-                            </div>
-                        </div>
-                    </div>
+
 
                     <div class="form-group">
                         <label for="people" class="form-label">
@@ -215,7 +188,7 @@
                     const fields = [
                         { label: 'Name', value: formData.get('name') },
                         { label: 'Date', value: getSelectedText('date') },
-                        { label: 'Kimono Option', value: formData.get('kimono_option') },
+
                         { label: 'Guests', value: getSelectedText('people') },
                         { label: 'Allergies', value: formData.get('allergy') },
                         { label: 'Email', value: formData.get('email') },
@@ -320,44 +293,12 @@
                     console.error('Availability check failed:', error);
                 } finally {
                     // Re-check Kimono option visibility after updating availability
-                    if (typeof updateKimonoOptionVisibility === 'function') {
-                        updateKimonoOptionVisibility();
-                    }
+                    // Removed logic
                 }
             }
             checkAvailability();
 
-            // 3. Kimono Option Visibility Control
-            const dateSelect = document.getElementById('date');
-            const kimonoContainer = document.getElementById('kimono-option-container');
-            const kimonoRadios = document.getElementsByName('kimono_option');
-
-            // Available Day IDs (day3=Jan 3, day7=Jan 7, day8=Jan 8, day9=Jan 9)
-            // Based on index_en.html availability
-            const kimonoAvailableDays = ['day3', 'day7', 'day8', 'day9'];
-
-            function updateKimonoOptionVisibility() {
-                if (!dateSelect || !kimonoContainer) return;
-
-                const selectedOption = dateSelect.options[dateSelect.selectedIndex];
-                const selectedDayId = selectedOption ? selectedOption.getAttribute('data-id') : null;
-
-                if (kimonoAvailableDays.includes(selectedDayId)) {
-                    kimonoContainer.style.display = 'block';
-                } else {
-                    kimonoContainer.style.display = 'none';
-                    // Reset to "No, thank you" when hidden
-                    if (kimonoRadios.length > 0) {
-                        kimonoRadios[0].checked = true; // Assuming 0 is "No"
-                    }
-                }
-            }
-
-            if (dateSelect) {
-                dateSelect.addEventListener('change', updateKimonoOptionVisibility);
-                // Initial check (for back navigation or URL params)
-                setTimeout(updateKimonoOptionVisibility, 100);
-            }
+            // 3. Kimono Option Visibility Control - Removed
         });
     </script>
 </body>
