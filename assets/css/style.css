@@ -1320,19 +1320,7 @@ footer {
     color: var(--color-accent);
 }
 
-/* Specific style for the detailed item in the right column */
-.feature-col li.feature-detail-item {
-    margin-top: 2rem;
-    padding-left: 0;
-    text-align: left;
-    line-height: 2;
-    border-top: 1px solid rgba(197, 160, 89, 0.3);
-    padding-top: 2rem;
-}
-
-.feature-col li.feature-detail-item::before {
-    display: none;
-}
+/* Specific style for the detailed item in the right column - REMOVED as per user request to match standard styling */
 
 @media (max-width: 768px) {
     .feature-columns {
