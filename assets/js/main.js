@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function checkAvailability() {
         try {
-            const response = await fetch(SHEET_CSV_URL);
+            const response = await fetch(SHEET_CSV_URL + '&t=' + new Date().getTime());
             const data = await response.text();
 
             // Parse CSV (Simple parsing assuming standard format)
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             badge.classList.add('full');
 
                             // Check if English page
-                            const isEnglish = document.documentElement.lang === 'en' || window.location.href.includes('_en.html');
+                            const isEnglish = document.documentElement.lang === 'en' || window.location.href.indexOf('_en.html') !== -1;
                             badge.innerHTML = isEnglish ? 'Full<br><span>Sold Out</span>' : '満席<br><span>Full</span>';
 
                             badge.removeAttribute('href'); // Disable link properly
