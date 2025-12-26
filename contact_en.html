@@ -59,6 +59,22 @@
                     <!-- Redirect removed, handled by JS -->
 
                     <div class="form-group">
+                        <label for="hotel_name" class="form-label">
+                            Hotel Name <span class="badge-optional">Optional</span>
+                        </label>
+                        <input type="text" id="hotel_name" name="hotel_name" class="form-input"
+                            placeholder="e.g. Imperial Hotel">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="concierge_name" class="form-label">
+                            Representative Name (Proxy Booking) <span class="badge-optional">Optional</span>
+                        </label>
+                        <input type="text" id="concierge_name" name="concierge_name" class="form-input"
+                            placeholder="e.g. Concierge Hanako Sato">
+                    </div>
+
+                    <div class="form-group">
                         <label for="name" class="form-label">
                             Name <span class="required-badge">Required</span>
                         </label>
@@ -186,6 +202,8 @@
 
                     // Field Mapping (English Labels)
                     const fields = [
+                        { label: 'Hotel Name', value: formData.get('hotel_name') },
+                        { label: 'Representative Name', value: formData.get('concierge_name') },
                         { label: 'Name', value: formData.get('name') },
                         { label: 'Date', value: getSelectedText('date') },
 
