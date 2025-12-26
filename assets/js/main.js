@@ -42,8 +42,8 @@ document.addEventListener('DOMContentLoaded', () => {
                             badge.classList.remove('available');
                             badge.classList.add('full');
 
-                            // Check if English page
-                            const isEnglish = document.documentElement.lang === 'en' || window.location.href.indexOf('_en.html') !== -1;
+                            // Check if English page (Robust check using lang attribute)
+                            const isEnglish = document.documentElement.lang === 'en';
                             badge.innerHTML = isEnglish ? 'Full<br><span>Sold Out</span>' : '満席<br><span>Full</span>';
 
                             badge.removeAttribute('href'); // Disable link properly
