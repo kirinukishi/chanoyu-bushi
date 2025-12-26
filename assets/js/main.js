@@ -41,8 +41,13 @@ document.addEventListener('DOMContentLoaded', () => {
                             // Update to Full Badge
                             badge.classList.remove('available');
                             badge.classList.add('full');
-                            badge.innerHTML = '満席<br><span>Full</span>';
-                            badge.href = 'javascript:void(0)'; // Disable link
+
+                            // Check if English page
+                            const isEnglish = document.documentElement.lang === 'en' || window.location.href.includes('_en.html');
+                            badge.innerHTML = isEnglish ? 'Full<br><span>Sold Out</span>' : '満席<br><span>Full</span>';
+
+                            badge.removeAttribute('href'); // Disable link properly
+                            badge.href = 'javascript:void(0)';
                             badge.style.cursor = 'default';
                             badge.style.backgroundColor = '#666'; // Gray out
                             badge.style.pointerEvents = 'none';
