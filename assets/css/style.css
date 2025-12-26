@@ -1309,6 +1309,19 @@ footer {
     color: var(--color-accent);
 }
 
+.feature-list li.feature-full-width {
+    flex-basis: 100%;
+    margin-top: 2rem;
+    text-align: center;
+    padding-left: 0;
+    border-top: 1px solid rgba(197, 160, 89, 0.3);
+    padding-top: 2rem;
+}
+
+.feature-list li.feature-full-width::before {
+    display: none;
+}
+
 @media (max-width: 768px) {
     .plan-header h2 {
         font-size: 1.8rem;
