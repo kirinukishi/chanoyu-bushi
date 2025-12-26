@@ -197,6 +197,8 @@
 
                     // Field Mapping
                     const fields = [
+                        { label: '宿泊ホテル名', value: formData.get('hotel_name') },
+                        { label: 'ご担当者様名', value: formData.get('concierge_name') },
                         { label: 'お名前', value: formData.get('name') },
                         { label: 'ご希望日程', value: getSelectedText('date') },
 
