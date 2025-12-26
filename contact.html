@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Experience - Chanoyu Bushi</title>
+    <title>お申し込み・お問い合わせ | 禅茶道 - New Year Premium Tea Experience</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -19,147 +19,140 @@
     <div class="contact-header">
         <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
             <a href="index.html" class="back-link">
-                <span>←</span> Back to Top
+                <span>←</span> TOPページへ戻る
             </a>
             <div class="lang-switch-static">
-                <a href="contact_jp.html">JP</a> | <a href="contact.html" class="active">EN</a>
+                <a href="contact.html" class="active">JP</a> | <a href="contact_en.html">EN</a>
             </div>
         </div>
     </div>
 
     <div class="container">
         <div class="form-container">
-            <!-- Success Message (Initially hidden) -->
+            <!-- 成功メッセージ (初期状態は非表示) -->
             <div id="success-message" style="display: none; text-align: center; padding: 4rem 0;">
-                <h2 style="font-family: 'Noto Serif JP', serif; font-size: 2rem; margin-bottom: 2rem;">Submission
-                    Complete</h2>
+                <h2 style="font-family: 'Noto Serif JP', serif; font-size: 2rem; margin-bottom: 2rem;">送信完了</h2>
                 <p style="margin-bottom: 2rem; line-height: 2;">
-                    Thank you for your booking request.<br>
-                    We have received the following details.<br>
-                    We will check the details and contact you shortly.
+                    お申し込みありがとうございます。<br>
+                    以下の内容で受け付けました。<br>
+                    担当者より確認のメールをお送りいたしますので、今しばらくお待ちください。
                 </p>
 
-                <!-- Submission Summary Area -->
+                <!-- 申し込み内容表示エリア -->
                 <div id="submission-summary"
                     style="text-align: left; background: rgba(255,255,255,0.05); padding: 2rem; border-radius: 8px; margin: 0 auto 3rem; max-width: 600px; border: 1px solid rgba(168, 138, 77, 0.3);">
-                    <!-- JS inserts content here -->
+                    <!-- JSで内容を挿入 -->
                 </div>
 
                 <a href="index.html" class="cta-button" style="display: inline-block; text-decoration: none;">
-                    Back to Top
+                    トップページへ戻る
                 </a>
             </div>
 
-            <!-- Form Content -->
+            <!-- 入力フォーム (成功時は非表示にする) -->
             <div id="form-content-area">
-                <h1 class="contact-form-title">Reservation Form</h1>
+                <h1 class="contact-form-title">ご予約フォーム</h1>
 
                 <!-- Formspree configuration (AJAX handled) -->
                 <form id="contact-form" action="https://formspree.io/f/mpqalgpz" method="POST">
-                    <!-- Redirect removed, handled by JS -->
+                    <!-- ... Form fields ... -->
 
                     <div class="form-group">
                         <label for="hotel_name" class="form-label">
-                            Hotel Name <span class="badge-optional">Optional</span>
+                            宿泊ホテル名 <span class="badge-optional">任意</span>
                         </label>
-                        <input type="text" id="hotel_name" name="hotel_name" class="form-input"
-                            placeholder="e.g. Imperial Hotel">
+                        <input type="text" id="hotel_name" name="hotel_name" class="form-input" placeholder="例：帝国ホテル">
                     </div>
 
                     <div class="form-group">
                         <label for="concierge_name" class="form-label">
-                            Representative Name (Proxy Booking) <span class="badge-optional">Optional</span>
+                            ご担当者様名（代理予約の場合） <span class="badge-optional">任意</span>
                         </label>
                         <input type="text" id="concierge_name" name="concierge_name" class="form-input"
-                            placeholder="e.g. Concierge Hanako Sato">
+                            placeholder="例：コンシェルジュ 佐藤 花子">
                     </div>
 
                     <div class="form-group">
                         <label for="name" class="form-label">
-                            Name <span class="required-badge">Required</span>
+                            ご予約者様代表者名 <span class="required-badge">必須</span>
                         </label>
-                        <input type="text" id="name" name="name" class="form-input" placeholder="e.g. John Smith"
-                            required>
+                        <input type="text" id="name" name="name" class="form-input" placeholder="例：山田 太郎" required>
                     </div>
 
                     <div class="form-group">
                         <label for="date" class="form-label">
-                            Preferred Date <span class="required-badge">Required</span>
+                            ご希望日程 <span class="required-badge">必須</span>
                         </label>
                         <select id="date" name="date" class="form-select" required>
-                            <option value="" disabled selected>Please Select</option>
-                            <optgroup label="Sharakukan (写楽館)">
-                                <option value="1/1 (Wed) 13:45-15:15" data-id="day1">Jan 1 (Wed) 13:45 - 15:15</option>
-                                <option value="1/2 (Thu) 13:45-15:15" data-id="day2">Jan 2 (Thu) 13:45 - 15:15</option>
-                                <option value="1/3 (Fri) 13:45-15:15" data-id="day3">Jan 3 (Fri) 13:45 - 15:15</option>
+                            <option value="" disabled selected>選択してください</option>
+                            <optgroup label="写楽館 (Sharakukan)">
+                                <option value="1/1 (Wed) 13:45-15:15" data-id="day1">1/1 (水) 13:45 - 15:15</option>
+                                <option value="1/2 (Thu) 13:45-15:15" data-id="day2">1/2 (木) 13:45 - 15:15</option>
+                                <option value="1/3 (Fri) 13:45-15:15" data-id="day3">1/3 (金) 13:45 - 15:15</option>
                             </optgroup>
-                            <optgroup label="Hama-rikyu Gardens (浜離宮恩賜庭園)">
-                                <option value="1/6 (Mon) 13:45-15:15" data-id="day6">Jan 6 (Mon) 13:45 - 15:15</option>
-                                <option value="1/7 (Tue) 13:45-15:15" data-id="day7">Jan 7 (Tue) 13:45 - 15:15</option>
-                                <option value="1/8 (Wed) 13:45-15:15" data-id="day8">Jan 8 (Wed) 13:45 - 15:15</option>
-                                <option value="1/9 (Thu) 13:45-15:15" data-id="day9">Jan 9 (Thu) 13:45 - 15:15</option>
+                            <optgroup label="浜離宮恩賜庭園 (Hama-rikyu Gardens)">
+                                <option value="1/6 (Mon) 13:45-15:15" data-id="day6">1/6 (月) 13:45 - 15:15</option>
+                                <option value="1/7 (Tue) 13:45-15:15" data-id="day7">1/7 (火) 13:45 - 15:15</option>
+                                <option value="1/8 (Wed) 13:45-15:15" data-id="day8">1/8 (水) 13:45 - 15:15</option>
+                                <option value="1/9 (Thu) 13:45-15:15" data-id="day9">1/9 (木) 13:45 - 15:15</option>
                             </optgroup>
                         </select>
                     </div>
 
-
+                    <!-- Kimono Option Removed as per user request (moved to LP) -->
 
                     <div class="form-group">
                         <label for="people" class="form-label">
-                            No. of Guests <span class="required-badge">Required</span>
+                            参加人数 <span class="required-badge">必須</span>
                         </label>
                         <select id="people" name="people" class="form-select" required>
-                            <option value="" disabled selected>Please Select (Min 2)</option>
-                            <option value="2">2 Guests</option>
-                            <option value="3">3 Guests</option>
-                            <option value="4">4 Guests</option>
-                            <option value="5以上">5+ Guests (Please inquire)</option>
+                            <option value="" disabled selected>選択してください (2名様より)</option>
+                            <option value="2">2名</option>
+                            <option value="3">3名</option>
+                            <option value="4">4名</option>
+                            <option value="5以上">5名以上（要相談）</option>
                         </select>
                     </div>
 
                     <div class="form-group">
                         <label for="allergy" class="form-label">
-                            Allergies / Dietary Restrictions <span class="badge-optional">Optional</span>
+                            アレルギー・食事制限 <span class="badge-optional">任意</span>
                         </label>
                         <textarea id="allergy" name="allergy" class="form-input" rows="3"
-                            placeholder="Please let us know if you have any allergies or dislikes (e.g. Shellfish, Wheat, Alcohol)."></textarea>
+                            placeholder="食物アレルギーや苦手な食材があればご記入ください（例：甲殻類、小麦、アルコールなど）"></textarea>
                     </div>
 
                     <div class="form-group">
                         <label for="email" class="form-label">
-                            Email Address
+                            ご連絡先（メールアドレス）
                         </label>
-                        <input type="email" id="email" name="email" class="form-input"
-                            placeholder="e.g. info@example.com">
+                        <input type="email" id="email" name="email" class="form-input" placeholder="例：info@example.com">
                     </div>
 
                     <div class="form-group">
                         <label for="tel" class="form-label">
-                            Phone Number <span class="required-badge">Required</span>
+                            ご連絡先（お電話番号） <span class="required-badge">必須</span>
                         </label>
-                        <input type="tel" id="tel" name="tel" class="form-input" placeholder="e.g. +81-90-1234-5678"
-                            required>
+                        <input type="tel" id="tel" name="tel" class="form-input" placeholder="例：090-1234-5678" required>
                     </div>
 
                     <div class="form-group">
                         <label for="message" class="form-label">
-                            Requests / Questions
+                            その他・ご質問など
                         </label>
                         <textarea id="message" name="message" class="form-textarea" rows="4"
-                            placeholder="Please write any questions or special requests."></textarea>
+                            placeholder="ご質問やご要望がございましたらお書きください。"></textarea>
                     </div>
 
                     <div class="submit-btn-container" style="text-align: center; margin-top: 3rem;">
                         <div class="form-notes" style="text-align: left; max-width: 600px; margin: 0 auto 2rem;">
-                            <p>【Payment】<br>Payment is <strong>Cash Only</strong> on-site (JPY).<br>Please note that
-                                credit cards are NOT accepted.</p>
-                            <p>【Cancellation】<br>Cancellation fees apply as materials are prepared in
-                                advance.<br>Details will be sent via booking confirmation email.
+                            <p>【お支払いについて】<br>当日は<strong>現金のみ</strong>の現地決済となります。<br>クレジットカードはご利用いただけませんのでご了承ください。</p>
+                            <p>【キャンセルについて】<br>ご予約確定後のキャンセルは致しかねます。<br>詳細はご予約確定メールにてご案内させていただきます。
                             </p>
                         </div>
                         <button type="submit" id="submit-button" class="cta-button"
                             style="border: none; cursor: pointer;">
-                            Submit Booking
+                            内容を送信する
                         </button>
                     </div>
                 </form>
@@ -185,7 +178,7 @@
 
                     const submitBtn = document.querySelector("#submit-button");
                     const originalBtnText = submitBtn.textContent;
-                    submitBtn.textContent = "Sending...";
+                    submitBtn.textContent = "送信中...";
                     submitBtn.disabled = true;
 
                     const formData = new FormData(form);
@@ -202,18 +195,18 @@
                         return "";
                     }
 
-                    // Field Mapping (English Labels)
+                    // Field Mapping
                     const fields = [
-                        { label: 'Hotel Name', value: formData.get('hotel_name') },
-                        { label: 'Representative Name', value: formData.get('concierge_name') },
-                        { label: 'Name', value: formData.get('name') },
-                        { label: 'Date', value: getSelectedText('date') },
+                        { label: '宿泊ホテル名', value: formData.get('hotel_name') },
+                        { label: 'ご担当者様名', value: formData.get('concierge_name') },
+                        { label: 'お名前', value: formData.get('name') },
+                        { label: 'ご希望日程', value: getSelectedText('date') },
 
-                        { label: 'Guests', value: getSelectedText('people') },
-                        { label: 'Allergies', value: formData.get('allergy') },
-                        { label: 'Email', value: formData.get('email') },
-                        { label: 'Phone', value: formData.get('tel') },
-                        { label: 'Requests', value: formData.get('message') }
+                        { label: '参加人数', value: getSelectedText('people') },
+                        { label: 'アレルギー等', value: formData.get('allergy') },
+                        { label: 'メールアドレス', value: formData.get('email') },
+                        { label: '電話番号', value: formData.get('tel') },
+                        { label: 'その他', value: formData.get('message') }
                     ];
 
                     fields.forEach(field => {
@@ -248,14 +241,14 @@
                                 if (Object.hasOwn(data, 'errors')) {
                                     alert(data["errors"].map(error => error["message"]).join(", "));
                                 } else {
-                                    alert("An error occurred during submission. Please try again.");
+                                    alert("送信中にエラーが発生しました。もう一度お試しください。");
                                 }
                             });
                             submitBtn.textContent = originalBtnText;
                             submitBtn.disabled = false;
                         }
                     }).catch(error => {
-                        alert("An error occurred. Please check your network connection.");
+                        alert("送信中にエラーが発生しました。ネットワーク接続をご確認ください。");
                         submitBtn.textContent = originalBtnText;
                         submitBtn.disabled = false;
                     });
@@ -311,14 +304,11 @@
                     });
                 } catch (error) {
                     console.error('Availability check failed:', error);
-                } finally {
-                    // Re-check Kimono option visibility after updating availability
-                    // Removed logic
                 }
             }
-            checkAvailability();
 
-            // 3. Kimono Option Visibility Control - Removed
+            // Execute availability check
+            checkAvailability();
         });
     </script>
 </body>
