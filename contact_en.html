@@ -88,10 +88,12 @@
                         </label>
                         <select id="date" name="date" class="form-select" required>
                             <option value="" disabled selected>Please Select</option>
-                            <optgroup label="Hama-rikyu Gardens (浜離宮恩賜庭園)">
+                            <optgroup label="Sharakukan (写楽館)">
                                 <option value="1/1 (Wed) 13:45-15:15" data-id="day1">Jan 1 (Wed) 13:45 - 15:15</option>
                                 <option value="1/2 (Thu) 13:45-15:15" data-id="day2">Jan 2 (Thu) 13:45 - 15:15</option>
                                 <option value="1/3 (Fri) 13:45-15:15" data-id="day3">Jan 3 (Fri) 13:45 - 15:15</option>
+                            </optgroup>
+                            <optgroup label="Hama-rikyu Gardens (浜離宮恩賜庭園)">
                                 <option value="1/6 (Mon) 13:45-15:15" data-id="day6">Jan 6 (Mon) 13:45 - 15:15</option>
                                 <option value="1/7 (Tue) 13:45-15:15" data-id="day7">Jan 7 (Tue) 13:45 - 15:15</option>
                                 <option value="1/8 (Wed) 13:45-15:15" data-id="day8">Jan 8 (Wed) 13:45 - 15:15</option>
@@ -299,7 +301,7 @@
 
                         // ステータスが full なら選択肢を削除
                         if (id && status === 'full') {
-                            const option = document.querySelector(`option[data-id="\${id}"]`);
+                            const option = document.querySelector(`option[data-id="${id}"]`);
                             if (option) {
                                 option.remove();
                                 // もし選択されていた項目が消えた場合、選択状態をリセットする処理があっても良いが、
