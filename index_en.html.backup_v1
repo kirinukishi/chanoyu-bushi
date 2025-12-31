@@ -18,33 +18,13 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="assets/css/style.css">
-
-    <!-- Meta Pixel Code -->
-    <script>
-        !function (f, b, e, v, n, t, s) {
-            if (f.fbq) return; n = f.fbq = function () {
-                n.callMethod ?
-                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-            };
-            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
-            n.queue = []; t = b.createElement(e); t.async = !0;
-            t.src = v; s = b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t, s)
-        }(window, document, 'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '2001357363775782');
-        fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-            src="https://www.facebook.com/tr?id=2001357363775782&ev=PageView&noscript=1" /></noscript>
-    <!-- End Meta Pixel Code -->
 </head>
 
 <body>
 
     <header class="hero">
         <div class="lang-switch">
-            <a href="index_develop_v2.html">JP</a> | <a href="index_en_develop_v2.html" class="active">EN</a>
+            <a href="index.html">JP</a> | <a href="index_en.html" class="active">EN</a>
         </div>
         <div class="hero-bg">
             <img src="assets/images/hero.jpg" alt="禅茶道体験">
@@ -69,8 +49,7 @@
                         invitation only.</span>
                 </p>
             </div>
-            <a href="#schedule" class="cta-button fade-in-up delay-3" onclick="fbq('track', 'InitiateCheckout');">Check
-                Availability</a>
+            <a href="contact_en.html" class="cta-button fade-in-up delay-3">Request an Invitation</a>
             <p class="fade-in-up delay-3" style="color: #fff; font-size: 0.9rem; margin-top: 1rem; opacity: 0.9;">
                 One private group per day.<br>By invitation only.</p>
         </div>
@@ -148,8 +127,7 @@
             <div class="highlights-image-container">
                 <img src="assets/images/highlights_bg.jpg" alt="抹茶" class="highlights-matcha-img">
                 <div class="cta-wrapper">
-                    <a href="#schedule" class="cta-button" onclick="fbq('track', 'InitiateCheckout');">Book Special
-                        Experience</a>
+                    <a href="contact_en.html" class="cta-button">Book Special Experience</a>
                 </div>
             </div>
         </div>
@@ -282,14 +260,6 @@
             <div class="section-header fade-in-on-scroll">
                 <span class="jp-category">Availability</span>
                 <h2>Schedule</h2>
-                <p
-                    style="margin-top: 1.5rem; font-family: 'Shippori Mincho', serif; font-size: 1rem; color: #555; line-height: 1.8;">
-                    Capacity: 2-5 guests per session.<br>
-                    <span style="font-size: 0.9rem; color: #888;">
-                        *For groups of 6 or more, please <a href="#contact"
-                            style="color: #a88a4d; text-decoration: underline;">contact us</a>.
-                    </span>
-                </p>
             </div>
 
 
@@ -308,146 +278,139 @@
                             <div class="schedule-date">1 / 1 (Wed)</div>
                             <div class="schedule-location">📍 Sharakukan</div>
                             <div class="schedule-time">13:45 - 15:15</div>
-                            <a href="https://buy.stripe.com/6oU00j6gu9V50bb4EC5sA0s" class="status-badge available"
-                                onclick="fbq('track', 'InitiateCheckout');"
-                                target="_blank">Open<br><span>Apply</span></a>
+                            <a href="contact_en.html?date=1/1 (Wed) 13:45-15:15"
+                                class="status-badge available">Open<br><span>Apply</span></a>
                         </div>
                         <!-- Day 2 -->
                         <div class="schedule-card" data-id="day2">
                             <div class="schedule-date">1 / 2 (Thu)</div>
                             <div class="schedule-location">📍 Sharakukan</div>
                             <div class="schedule-time">13:45 - 15:15</div>
-                            <a href="https://buy.stripe.com/9B614n7kyebl8HH7QO5sA0t" class="status-badge available"
-                                onclick="fbq('track', 'InitiateCheckout');"
-                                target="_blank">Open<br><span>Apply</span></a>
+                            <a href="contact_en.html?date=1/2 (Thu) 13:45-15:15"
+                                class="status-badge available">Open<br><span>Apply</span></a>
                         </div>
                         <!-- Day 3 -->
                         <div class="schedule-card" data-id="day3">
                             <div class="schedule-date">1 / 3 (Fri)</div>
                             <div class="schedule-location">📍 Sharakukan</div>
                             <div class="schedule-time">13:45 - 15:15</div>
-                            <a href="https://buy.stripe.com/6oU8wP20e0kvaPP6MK5sA0u" class="status-badge available"
-                                onclick="fbq('track', 'InitiateCheckout');"
-                                target="_blank">Open<br><span>Apply</span></a>
+                            <a href="contact_en.html?date=1/3 (Fri) 13:45-15:15"
+                                class="status-badge available">Open<br><span>Apply</span></a>
                         </div>
                     </div>
-                    <p
-                        style="width: 100%; text-align: right; font-size: 0.8rem; color: #888; margin-top: 0.5rem; margin-bottom: 2rem;">
-                        *Clicking "Open" will redirect you to the payment page (Stripe).
-                    </p>
                 </div>
+            </div>
 
-                <!-- Jan 3 Special Plan Info Block -->
+            <!-- Jan 3 Special Plan Info Block -->
+            <div
+                style="margin-top: 2rem; margin-bottom: 5rem; padding: 2rem 2.5rem; background: linear-gradient(135deg, #fffcf5 0%, #f5ecd0 100%); border: 2px solid #a88a4d; border-radius: 12px; font-size: 1rem; text-align: left; box-shadow: 0 8px 25px rgba(168, 138, 77, 0.2); position: relative; overflow: hidden; max-width: 850px; margin-left: auto; margin-right: auto;">
                 <div
-                    style="margin-top: 2rem; margin-bottom: 5rem; padding: 2rem 2.5rem; background: linear-gradient(135deg, #fffcf5 0%, #f5ecd0 100%); border: 2px solid #a88a4d; border-radius: 12px; font-size: 1rem; text-align: left; box-shadow: 0 8px 25px rgba(168, 138, 77, 0.2); position: relative; overflow: hidden; max-width: 850px; margin-left: auto; margin-right: auto;">
+                    style="position: absolute; top: 0; left: 0; background: #666; color: #fff; font-size: 0.9rem; padding: 6px 16px; border-bottom-right-radius: 12px; letter-spacing: 0.1em;">
+                    Option</div>
+                <div
+                    style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 2rem; margin-top: 1rem;">
+                    <div style="flex: 1 1 350px;">
+                        <div style="display: flex; align-items: baseline; gap: 1rem; margin-bottom: 0.5rem;">
+                            <span
+                                style="font-size: 2.8rem; font-weight: 900; color: #a88a4d; font-family: 'Shippori Mincho', serif; line-height: 1;">1/3</span>
+                            <span
+                                style="font-size: 1.1rem; font-weight: bold; color: #a88a4d; background: rgba(168,138,77,0.15); padding: 4px 12px; border-radius: 50px; transform: translateY(-0.5rem);">Limited</span>
+                        </div>
+                        <h4
+                            style="font-weight: bold; color: #333; margin-bottom: 1rem; font-size: 1.6rem; line-height: 1.3; font-family: 'Shippori Mincho', serif; letter-spacing: 0.05em;">
+                            Kimono Tea Ceremony
+                        </h4>
+                        <p style="font-size: 1.05rem; line-height: 1.8; color: #555; margin-bottom: 0;">
+                            Start the New Year in beautiful Kimono attire.<br>
+                            We promise a special moment that will remain a lifelong memory.
+                        </p>
+                    </div>
                     <div
-                        style="position: absolute; top: 0; left: 0; background: #666; color: #fff; font-size: 0.9rem; padding: 6px 16px; border-bottom-right-radius: 12px; letter-spacing: 0.1em;">
-                        Option</div>
-                    <div
-                        style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 2rem; margin-top: 1rem;">
-                        <div style="flex: 1 1 350px;">
-                            <div style="display: flex; align-items: baseline; gap: 1rem; margin-bottom: 0.5rem;">
-                                <span
-                                    style="font-size: 2.8rem; font-weight: 900; color: #a88a4d; font-family: 'Shippori Mincho', serif; line-height: 1;">1/3</span>
-                                <span
-                                    style="font-size: 1.1rem; font-weight: bold; color: #a88a4d; background: rgba(168,138,77,0.15); padding: 4px 12px; border-radius: 50px; transform: translateY(-0.5rem);">Limited</span>
-                            </div>
-                            <h4
-                                style="font-weight: bold; color: #333; margin-bottom: 1rem; font-size: 1.6rem; line-height: 1.3; font-family: 'Shippori Mincho', serif; letter-spacing: 0.05em;">
-                                Kimono Tea Ceremony
-                            </h4>
-                            <p style="font-size: 1.05rem; line-height: 1.8; color: #555; margin-bottom: 0;">
-                                Start the New Year in beautiful Kimono attire.<br>
-                                We promise a special moment that will remain a lifelong memory.
+                        style="flex: 1 1 320px; font-size: 1rem; color: #333; background: rgba(255,255,255,0.85); padding: 1.5rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); align-self: stretch; display: flex; flex-direction: column; justify-content: center;">
+                        <p
+                            style="margin-bottom: 0.8rem; font-weight: bold; border-left: 4px solid #a88a4d; padding-left: 10px; line-height: 1.2; font-size: 1.1rem;">
+                            Contact / Consultation</p>
+                        <p style="margin-bottom: 0.5rem; font-size: 1rem; font-weight: 500;">General Incorporated
+                            Association ChaCha</p>
+                        <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+                            <p style="margin-bottom: 0; display: flex; align-items: center; gap: 0.8rem;">
+                                <span style="font-size: 1.4em;">📞</span>
+                                <a href="tel:09049614277"
+                                    style="font-size: 1.4rem; font-weight: bold; color: #333; text-decoration: none; letter-spacing: 0.05em; border-bottom: 2px solid #a88a4d;">
+                                    090-4961-4277
+                                </a>
+                            </p>
+                            <p style="margin-bottom: 0; display: flex; align-items: center; gap: 0.8rem;">
+                                <span style="font-size: 1.4em;">✉️</span>
+                                <a href="mailto:info@chanoyu-bushi.com"
+                                    style="font-size: 1.1rem; color: #333; text-decoration: none; border-bottom: 1px solid #aaa; word-break: break-all;">
+                                    info@chanoyu-bushi.com
+                                </a>
                             </p>
                         </div>
-                        <div
-                            style="flex: 1 1 320px; font-size: 1rem; color: #333; background: rgba(255,255,255,0.85); padding: 1.5rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); align-self: stretch; display: flex; flex-direction: column; justify-content: center;">
-                            <p
-                                style="margin-bottom: 0.8rem; font-weight: bold; border-left: 4px solid #a88a4d; padding-left: 10px; line-height: 1.2; font-size: 1.1rem;">
-                                Contact / Consultation</p>
-                            <p style="margin-bottom: 0.5rem; font-size: 1rem; font-weight: 500;">General Incorporated
-                                Association ChaCha</p>
-                            <div style="display: flex; flex-direction: column; gap: 0.6rem;">
-                                <p style="margin-bottom: 0; display: flex; align-items: center; gap: 0.8rem;">
-                                    <span style="font-size: 1.4em;">📞</span>
-                                    <a href="tel:09049614277"
-                                        style="font-size: 1.4rem; font-weight: bold; color: #333; text-decoration: none; letter-spacing: 0.05em; border-bottom: 2px solid #a88a4d;">
-                                        090-4961-4277
-                                    </a>
-                                </p>
-                                <p style="margin-bottom: 0; display: flex; align-items: center; gap: 0.8rem;">
-                                    <span style="font-size: 1.4em;">✉️</span>
-                                    <a href="mailto:info@chanoyu-bushi.com"
-                                        style="font-size: 1.1rem; color: #333; text-decoration: none; border-bottom: 1px solid #aaa; word-break: break-all;">
-                                        info@chanoyu-bushi.com
-                                    </a>
-                                </p>
-                            </div>
-                        </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Venue 2 -->
-                <div class="schedule-group">
+            <!-- Venue 2 -->
+            <div class="schedule-group">
 
-                    <h3 class="schedule-venue-title">Hama-rikyu Gardens (Tokyo) - JAN 6-9</h3>
-                    <a href="https://share.google/7NxMWHv7sVu8TcomU" target="_blank" class="venue-link"
-                        style="display: inline-block; margin-bottom: 2rem; color: #a88a4d; text-decoration: none; border-bottom: 1px solid #a88a4d;">
-                        📍 Map & Access here
-                    </a>
+                <h3 class="schedule-venue-title">Hama-rikyu Gardens (Tokyo) - JAN 6-9</h3>
+                <a href="https://share.google/7NxMWHv7sVu8TcomU" target="_blank" class="venue-link"
+                    style="display: inline-block; margin-bottom: 2rem; color: #a88a4d; text-decoration: none; border-bottom: 1px solid #a88a4d;">
+                    📍 Map & Access here
+                </a>
 
-                    <div class="schedule-list">
-                        <!-- Day 6 -->
-                        <div class="schedule-card" data-id="day6">
-                            <div class="schedule-date">1 / 6 (Mon)</div>
-                            <div class="schedule-location">📍 Hama-rikyu Gardens</div>
-                            <div class="schedule-time">13:45 - 15:15</div>
-                            <a href="https://buy.stripe.com/bJe4gzcESaZ9f65fjg5sA0v" class="status-badge available"
-                                onclick="fbq('track', 'InitiateCheckout');"
-                                target="_blank">Open<br><span>Apply</span></a>
-                        </div>
-                        <!-- Day 7 -->
-                        <div class="schedule-card" data-id="day7">
-                            <div class="schedule-date">1 / 7 (Tue)</div>
-                            <div class="schedule-location">📍 Hama-rikyu Gardens</div>
-                            <div class="schedule-time">13:45 - 15:15</div>
-                            <a href="javascript:void(0)" class="status-badge sold-out" data-date="1/7">Sold
-                                Out<br><span>Full</span></a>
-                        </div>
-                        <!-- Day 8 -->
-                        <div class="schedule-card" data-id="day8">
-                            <div class="schedule-date">1 / 8 (Wed)</div>
-                            <div class="schedule-location">📍 Hama-rikyu Gardens</div>
-                            <div class="schedule-time">13:45 - 15:15</div>
-                            <a href="https://buy.stripe.com/fZu3cv9sGd7h2jj3Ay5sA0w" class="status-badge available"
-                                onclick="fbq('track', 'InitiateCheckout');"
-                                target="_blank">Open<br><span>Apply</span></a>
-                        </div>
-                        <!-- Day 9 -->
-                        <div class="schedule-card" data-id="day9">
-                            <div class="schedule-date">1 / 9 (Thu)</div>
-                            <div class="schedule-location">📍 Hama-rikyu Gardens</div>
-                            <div class="schedule-time">13:45 - 15:15</div>
-                            <a href="https://buy.stripe.com/28EfZhcESebl1ff1sq5sA0x" class="status-badge available"
-                                onclick="fbq('track', 'InitiateCheckout');"
-                                target="_blank">Open<br><span>Apply</span></a>
-                        </div>
+                <div class="schedule-list">
+                    <!-- Day 6 -->
+                    <div class="schedule-card" data-id="day6">
+                        <div class="schedule-date">1 / 6 (Mon)</div>
+                        <div class="schedule-location">📍 Hama-rikyu Gardens</div>
+                        <div class="schedule-time">13:45 - 15:15</div>
+                        <a href="contact_en.html?date=1/6 (Mon) 13:45-15:15"
+                            class="status-badge available">Open<br><span>Apply</span></a>
                     </div>
-                    <p style="width: 100%; text-align: right; font-size: 0.8rem; color: #888; margin-top: 0.5rem;">
-                        *Clicking "Open" will redirect you to the payment page (Stripe).
-                    </p>
+                    <!-- Day 7 -->
+                    <div class="schedule-card" data-id="day7">
+                        <div class="schedule-date">1 / 7 (Tue)</div>
+                        <div class="schedule-location">📍 Hama-rikyu Gardens</div>
+                        <div class="schedule-time">13:45 - 15:15</div>
+                        <a href="contact_en.html?date=1/7 (Tue) 13:45-15:15"
+                            class="status-badge available">Open<br><span>Apply</span></a>
+                    </div>
+                    <!-- Day 8 -->
+                    <div class="schedule-card" data-id="day8">
+                        <div class="schedule-date">1 / 8 (Wed)</div>
+                        <div class="schedule-location">📍 Hama-rikyu Gardens</div>
+                        <div class="schedule-time">13:45 - 15:15</div>
+                        <a href="contact_en.html?date=1/8 (Wed) 13:45-15:15"
+                            class="status-badge available">Open<br><span>Apply</span></a>
+                    </div>
+                    <!-- Day 9 -->
+                    <div class="schedule-card" data-id="day9">
+                        <div class="schedule-date">1 / 9 (Thu)</div>
+                        <div class="schedule-location">📍 Hama-rikyu Gardens</div>
+                        <div class="schedule-time">13:45 - 15:15</div>
+                        <a href="contact_en.html?date=1/9 (Thu) 13:45-15:15"
+                            class="status-badge available">Open<br><span>Apply</span></a>
+                    </div>
                 </div>
+            </div>
+        </div>
+        </div>
 
-                <div class="schedule-note-text" style="text-align: right; margin-top: 1rem;">
-                    <p style="font-size: 0.85rem; color: #888; line-height: 1.6;">
-                        *We will contact you if any adjustments are needed after booking.
-                    </p>
-                </div>
-            </div>
-            <div class="bg-image-container">
-                <img src="assets/images/room.png" alt="茶室風景">
-            </div>
+        </div>
+        </div>
+
+        </div>
+
+        <div class="schedule-note-text">
+            ※お申し込み後に調整が必要な場合はご連絡いたします。
+        </div>
+        </div>
+        <div class="bg-image-container">
+            <img src="assets/images/room.png" alt="茶室風景">
+        </div>
     </section>
 
 
@@ -497,16 +460,13 @@
 
 
                 <div class="cta-wrapper" style="margin-top: 2rem;">
-                    <a href="#schedule" class="cta-button">Check Availability</a>
+                    <a href="contact_en.html" class="cta-button">Go to Booking Form</a>
                 </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <p style="margin-bottom: 0.5rem;"><a href="tokushoho_en.html"
-                style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.8rem;">Legal Information
-                (Tokushoho)</a></p>
         <p>&copy; 2025 Chanoyu Bushi. All Rights Reserved.</p>
     </footer>
 

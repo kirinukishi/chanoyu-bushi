@@ -18,33 +18,13 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="assets/css/style.css">
-
-    <!-- Meta Pixel Code -->
-    <script>
-        !function (f, b, e, v, n, t, s) {
-            if (f.fbq) return; n = f.fbq = function () {
-                n.callMethod ?
-                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-            };
-            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
-            n.queue = []; t = b.createElement(e); t.async = !0;
-            t.src = v; s = b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t, s)
-        }(window, document, 'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '2001357363775782');
-        fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-            src="https://www.facebook.com/tr?id=2001357363775782&ev=PageView&noscript=1" /></noscript>
-    <!-- End Meta Pixel Code -->
 </head>
 
 <body>
 
     <header class="hero">
         <div class="lang-switch">
-            <a href="index_develop_v2.html" class="active">JP</a> | <a href="index_en_develop_v2.html">EN</a>
+            <a href="index.html" class="active">JP</a> | <a href="index_en.html">EN</a>
         </div>
         <div class="hero-bg">
             <img src="assets/images/hero.jpg" alt="禅茶道体験">
@@ -70,8 +50,7 @@
                         制】</span>
                 </p>
             </div>
-            <a href="#schedule" class="cta-button fade-in-up delay-3"
-                onclick="fbq('track', 'InitiateCheckout');">空席状況を確認する</a>
+            <a href="contact.html" class="cta-button fade-in-up delay-3">招待をリクエストする</a>
             <p class="fade-in-up delay-3" style="color: #fff; font-size: 0.9rem; margin-top: 1rem; opacity: 0.9;">
                 1日1組限定<br>完全招待制</p>
         </div>
@@ -150,7 +129,7 @@
             <div class="highlights-image-container">
                 <img src="assets/images/highlights_bg.jpg" alt="抹茶" class="highlights-matcha-img">
                 <div class="cta-wrapper">
-                    <a href="#schedule" class="cta-button" onclick="fbq('track', 'InitiateCheckout');">特別体験を申し込む</a>
+                    <a href="contact.html" class="cta-button">特別体験を申し込む</a>
                 </div>
             </div>
         </div>
@@ -281,14 +260,6 @@
             <div class="section-header fade-in-on-scroll">
                 <span class="jp-category">空席状況</span>
                 <h2>開催日程</h2>
-                <p
-                    style="margin-top: 1.5rem; font-family: 'Shippori Mincho', serif; font-size: 1rem; color: #555; line-height: 1.8;">
-                    定員：1組 2〜5名様<br>
-                    <span style="font-size: 0.9rem; color: #888;">
-                        ※ 6名様以上でのご利用をご希望の場合は、<a href="#contact"
-                            style="color: #a88a4d; text-decoration: underline;">お問い合わせ</a>ください。
-                    </span>
-                </p>
             </div>
 
             <div class="schedule-container fade-in-on-scroll">
@@ -307,9 +278,7 @@
                             <div class="schedule-location">📍 写楽館<br><span class="en">Sharakukan</span>
                             </div>
                             <div class="schedule-time">13:45 - 15:15</div>
-                            <a href="https://buy.stripe.com/6oU00j6gu9V50bb4EC5sA0s"
-                                class="status-badge available stripe-link" target="_blank"
-                                onclick="fbq('track', 'InitiateCheckout');" data-date="1/1">受付中
+                            <a href="contact.html?date=1/1 (Wed) 13:45-15:15" class="status-badge available">受付中
                                 <br><span>Available</span></a>
                         </div>
                         <!-- Day 2 -->
@@ -318,9 +287,7 @@
                             <div class="schedule-location">📍 写楽館<br><span class="en">Sharakukan</span>
                             </div>
                             <div class="schedule-time">13:45 - 15:15</div>
-                            <a href="https://buy.stripe.com/9B614n7kyebl8HH7QO5sA0t"
-                                class="status-badge available stripe-link" target="_blank"
-                                onclick="fbq('track', 'InitiateCheckout');" data-date="1/2">受付中
+                            <a href="contact.html?date=1/2 (Thu) 13:45-15:15" class="status-badge available">受付中
                                 <br><span>Available</span></a>
                         </div>
                         <!-- Day 3 -->
@@ -329,16 +296,10 @@
                             <div class="schedule-location">📍 写楽館<br><span class="en">Sharakukan</span>
                             </div>
                             <div class="schedule-time">13:45 - 15:15</div>
-                            <a href="https://buy.stripe.com/6oU8wP20e0kvaPP6MK5sA0u"
-                                class="status-badge available stripe-link" target="_blank"
-                                onclick="fbq('track', 'InitiateCheckout');" data-date="1/3">受付中
+                            <a href="contact.html?date=1/3 (Fri) 13:45-15:15" class="status-badge available">受付中
                                 <br><span>Available</span></a>
                         </div>
                     </div>
-                    <p
-                        style="width: 100%; text-align: right; font-size: 0.8rem; color: #888; margin-top: 0.5rem; margin-bottom: 2rem;">
-                        ※ 「受付中」をクリックすると、決済画面（Stripe）へ移動します。
-                    </p>
                 </div>
 
                 <!-- Jan 3 Special Plan Info Block -->
@@ -403,9 +364,7 @@
                         <div class="schedule-location">📍 浜離宮恩賜庭園<br><span class="en">Hama-rikyu Gardens</span>
                         </div>
                         <div class="schedule-time">13:45 - 15:15</div>
-                        <a href="https://buy.stripe.com/bJe4gzcESaZ9f65fjg5sA0v"
-                            class="status-badge available stripe-link" target="_blank"
-                            onclick="fbq('track', 'InitiateCheckout');" data-date="1/6">受付中
+                        <a href="contact.html?date=1/6 (Mon) 13:45-15:15" class="status-badge available">受付中
                             <br><span>Available</span></a>
                     </div>
                     <!-- Day 7 -->
@@ -414,8 +373,8 @@
                         <div class="schedule-location">📍 浜離宮恩賜庭園<br><span class="en">Hama-rikyu Gardens</span>
                         </div>
                         <div class="schedule-time">13:45 - 15:15</div>
-                        <a href="javascript:void(0)" class="status-badge sold-out stripe-link" data-date="1/7">満席
-                            <br><span>Sold Out</span></a>
+                        <a href="contact.html?date=1/7 (Tue) 13:45-15:15" class="status-badge available">受付中
+                            <br><span>Available</span></a>
                     </div>
                     <!-- Day 8 -->
                     <div class="schedule-card" data-id="day8">
@@ -423,9 +382,7 @@
                         <div class="schedule-location">📍 浜離宮恩賜庭園<br><span class="en">Hama-rikyu Gardens</span>
                         </div>
                         <div class="schedule-time">13:45 - 15:15</div>
-                        <a href="https://buy.stripe.com/fZu3cv9sGd7h2jj3Ay5sA0w"
-                            class="status-badge available stripe-link" target="_blank"
-                            onclick="fbq('track', 'InitiateCheckout');" data-date="1/8">受付中
+                        <a href="contact.html?date=1/8 (Wed) 13:45-15:15" class="status-badge available">受付中
                             <br><span>Available</span></a>
                     </div>
                     <!-- Day 9 -->
@@ -434,22 +391,15 @@
                         <div class="schedule-location">📍 浜離宮恩賜庭園<br><span class="en">Hama-rikyu Gardens</span>
                         </div>
                         <div class="schedule-time">13:45 - 15:15</div>
-                        <a href="https://buy.stripe.com/28EfZhcESebl1ff1sq5sA0x"
-                            class="status-badge available stripe-link" target="_blank"
-                            onclick="fbq('track', 'InitiateCheckout');" data-date="1/9">受付中
+                        <a href="contact.html?date=1/9 (Thu) 13:45-15:15" class="status-badge available">受付中
                             <br><span>Available</span></a>
                     </div>
-                    <p style="width: 100%; text-align: right; font-size: 0.8rem; color: #888; margin-top: 0.5rem;">
-                        ※ 「受付中」をクリックすると、決済画面（Stripe）へ移動します。
-                    </p>
                 </div>
             </div>
         </div>
 
-        <div class="schedule-note-text" style="text-align: right; margin-top: 1rem;">
-            <p style="font-size: 0.85rem; color: #888; line-height: 1.6;">
-                ※ お申し込み後に調整が必要な場合はご連絡いたします。
-            </p>
+        <div class="schedule-note-text">
+            ※お申し込み後に調整が必要な場合はご連絡いたします。
         </div>
         </div>
         <div class="bg-image-container">
@@ -521,15 +471,13 @@
 
 
                 <div class="cta-wrapper" style="margin-top: 2rem;">
-                    <a href="#schedule" class="cta-button">空席状況・ご予約へ</a>
+                    <a href="contact.html" class="cta-button">お申し込みフォームへ</a>
                 </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <p style="margin-bottom: 0.5rem;"><a href="tokushoho.html"
-                style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.8rem;">特定商取引法に基づく表記</a></p>
         <p>&copy; 2025 Chanoyu Bushi. All Rights Reserved.</p>
     </footer>
 
