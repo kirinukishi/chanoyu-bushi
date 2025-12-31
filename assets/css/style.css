@@ -5,7 +5,7 @@
     /* Gold/Brass tone for luxury */
     --color-bg-dark: #1a1a1a;
     --color-bg-darker: #111111;
-    --font-serif: 'Shippori Mincho', 'Noto Serif JP', serif;
+    --font-serif: 'Shippori Mincho', 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
 }
 
 * {
@@ -1524,6 +1524,7 @@ footer {
     padding-left: 2.2rem;
     /* Indent to align with text of Q */
 }
+
 /* Sold Out Badge */
 .status-badge.sold-out {
     background-color: #999;
